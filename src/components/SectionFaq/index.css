@@ -1,0 +1,47 @@
+.faq-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
+}
+.faq-title{
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.faq-title h1{
+  font-size: 24px;
+}
+
+.faq-title p{
+  font-size: 14px ;
+}
+
+@media only screen and (min-width: 768px) {
+      .hero-section, .services-section, .faq-section{
+    flex-direction: row;
+  }
+  .faq-section{
+    margin: 1rem;
+    align-items: flex-start;
+  }
+
+  .faq-title{
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+.faq-section{
+    margin: 0;
+    padding: 5rem;
+  }
+
+  .faq-content{
+    width: 40%;
+  }
+}

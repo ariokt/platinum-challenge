@@ -1,0 +1,32 @@
+.not-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #F1F3FF;
+}
+.err{
+    color: #0D28A6;
+    font-size: 10rem;
+    left: 20%;
+    top: 8%;
+}
+.not-content{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.note{
+    width: 70%;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.home-link{
+    color: #0D28A6;
+    text-decoration: none;
+}
