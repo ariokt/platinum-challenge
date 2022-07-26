@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-intl": "^6.0.5",
     "react-lines-ellipsis": "^0.15.1",
+    "react-loading-skeleton": "^3.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",

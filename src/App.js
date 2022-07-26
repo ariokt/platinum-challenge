@@ -12,10 +12,7 @@ import Faq from "./components/SectionFaq";
 import Footer from "./components/SectionFooter";
 import CarList from "./pages/CarList";
 import DetailCar from "./pages/DetailCar";
-
-import Latihan from "./components/Latihan";
-import Home from "./pages/LandingPage/Home";
-import About from "./pages/LandingPage/About";
+import LandingPage from "./pages/LandingPage";
 function App() {
   return (
     <div className="App">
@@ -23,7 +20,8 @@ function App() {
       <BrowserRouter>
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={<LandingPage />} />
+          {/* <Route path="/" element={<Hero />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/testi" element={<Testimonial />} />

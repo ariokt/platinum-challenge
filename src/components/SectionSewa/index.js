@@ -1,5 +1,7 @@
-import React from 'react'
-import "./index.css"
+import React from "react";
+import "./index.css";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 const Sewa = () => {
   return (
     <div>
@@ -12,13 +14,13 @@ const Sewa = () => {
             exercitationem, rem porro quia atque aspernatur cum, ipsum nemo
             nihil vel sed.
           </p>
-          <button type="button" className="btn btn-success">
-            Mulai Sewa Mobil
-          </button>
+          <Link to="/cars">
+            <Button variant="success">Mulai Sewa Mobil</Button>
+          </Link>
         </div>
       </section>
     </div>
   );
-}
+};
 
-export default Sewa
+export default Sewa;

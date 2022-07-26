@@ -1,40 +1,33 @@
 import React from "react";
 import "./index.css";
+import SectionHero from "../../components/SectionHero";
 import { Form, Button, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IntlProvider, FormattedNumber } from "react-intl";
-import SectionHero from "../../components/SectionHero";
-// import Skeleton from "react-loading-skeleton";
-import LoadingSkeleton from "../../components/LoadingSkeleton";
+
 const CariMobil = () => {
   const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
 
   let navigate = useNavigate();
-  const [savedCars, setSavedCars] = useState([]);
   const [mobil, setMobil] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [namaMobil, setNamaMobil] = useState("");
-  const [kategoriMobil, setKategoriMobil] = useState("");
-  const [hargaMobil, setHargaMobil] = useState("");
-  // const [status, setStatus] = useState(false);
 
   useEffect(() => {
     setCarsList(BASE_URL);
   }, []);
 
-  function setCarsList(URL) {
+  function setCarsList(URL){
     axios
       .get(URL)
       .then((response) => {
         setMobil(response.data);
-        setSavedCars(response.data);
         setLoading(false);
       })
       .catch((error) => {
-        alert(error);
         setLoading(false);
+        alert(error);
       });
   }
 
@@ -42,25 +35,9 @@ const CariMobil = () => {
     navigate(`/cars/${id}`);
   }
 
-  const handleCariMobil = (e) => {
-    e.preventDefault();
-
-    if (savedCars.length > 0) {
-      const filterData = savedCars.filter(
-        (items) =>
-          items.name.toLocaleLowerCase() === namaMobil.toLocaleLowerCase() ||
-          items.category === kategoriMobil
-      );
-      setMobil(filterData);
-    }
-    setNamaMobil("");
-    setKategoriMobil("");
-    setHargaMobil("");
-  };
-
   return (
     <div>
-      <SectionHero />
+      <SectionHero/>
       <Form className="cari-content">
         <Form.Group controlId="formNama" className="mt-3">
           <Form.Label>Nama Mobil</Form.Label>
@@ -68,13 +45,11 @@ const CariMobil = () => {
             type="text"
             placeholder="Ketik Nama/Tipe Mobil"
             autoComplete="off"
-            onChange={(e) => setNamaMobil(e.target.value)}
-            value={namaMobil}
           />
         </Form.Group>
         <Form.Group controlId="formKategori" className="mt-3">
           <Form.Label>Kategori</Form.Label>
-          <Form.Select onChange={(e) => setKategoriMobil(e.target.value)}>
+          <Form.Select>
             <option key="blankChoice" hidden>
               Masukan Kapasitas Mobil
             </option>
@@ -85,13 +60,13 @@ const CariMobil = () => {
         </Form.Group>
         <Form.Group controlId="formHarga" className="mt-3">
           <Form.Label>Harga</Form.Label>
-          <Form.Select onChange={(e) => setHargaMobil(e.target.value)}>
+          <Form.Select>
             <option key="blankChoice" hidden>
               Masukan Harga Sewa per Hari
             </option>
             <option value="400000"> &#60; Rp.400.000 </option>
-            <option value="500000">Rp.400.000 - Rp. 600.000</option>
-            <option value="600000"> &#62; Rp. 600.000</option>
+            <option value="600000">Rp.400.000 - Rp. 600.000</option>
+            <option value="600001"> &#62; Rp. 600.000</option>
           </Form.Select>
         </Form.Group>
         <Form.Group controlId="formSewa" className="mt-3">
@@ -105,20 +80,15 @@ const CariMobil = () => {
           </Form.Select>
         </Form.Group>
 
-        <Button
-          variant="success"
-          type="submit"
-          className="mt-4"
-          onClick={handleCariMobil}
-        >
+        <Button variant="success" type="submit" className="mt-4">
           Cari Mobil
         </Button>
       </Form>
       <div className="mt-5 hasil-card">
         {loading ? (
-          <LoadingSkeleton panjangMobil={mobil.length} />
+          <h1 className="d-flex justify-content-around">Loading...</h1>
         ) : (
-          <div className="d-flex flex-wrap align-items-baseline justify-content-around">
+          <div className="d-flex flex-wrap align-items-stretch justify-content-around">
             {mobil.map((result) => {
               return (
                 <Card
@@ -145,7 +115,7 @@ const CariMobil = () => {
                         variant="success"
                         onClick={() => handleViewDetail(result.id)}
                       >
-                        Pilih Mobil
+                        Detail
                       </Button>
                     </div>
                   </Card.Body>
