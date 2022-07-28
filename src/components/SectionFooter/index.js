@@ -5,7 +5,8 @@ import IconInstagram from "../../assets/image/icon_instagram.png";
 import IconTwitter from "../../assets/image/icon_twitter.png";
 import IconMail from "../../assets/image/icon_mail.png";
 import IconTwitch from "../../assets/image/icon_twitch.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faFacebookSquare,
 //   faInstagram,
