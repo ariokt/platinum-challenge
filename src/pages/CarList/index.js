@@ -1,9 +1,9 @@
 import React from "react";
+import axios from "axios";
 import "./index.css";
-import { Form, Button, Card } from "react-bootstrap";
+import { Alert, Button, Card, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import SectionHero from "../../components/SectionHero";
 // import Skeleton from "react-loading-skeleton";
@@ -18,6 +18,8 @@ const CariMobil = () => {
   const [namaMobil, setNamaMobil] = useState("");
   const [kategoriMobil, setKategoriMobil] = useState("");
   const [hargaMobil, setHargaMobil] = useState("");
+  const [alertVisible, setAlertVisible] = useState(false);
+
   // const [status, setStatus] = useState(false);
 
   useEffect(() => {
@@ -28,8 +30,15 @@ const CariMobil = () => {
     axios
       .get(URL)
       .then((response) => {
-        setMobil(response.data);
-        setSavedCars(response.data);
+        const filterNull = response.data.filter(
+          (items) =>
+            items.name !== null &&
+            items.category !== null &&
+            items.price !== null &&
+            items.image !== null
+        );
+        setMobil(filterNull);
+        setSavedCars(filterNull);
         setLoading(false);
       })
       .catch((error) => {
@@ -38,20 +47,32 @@ const CariMobil = () => {
       });
   }
 
+  const handleNotData = () => {
+    setMobil(savedCars);
+    setAlertVisible(true);
+    setTimeout(() => {
+      setAlertVisible(false);
+    }, 2000);
+  };
+
   function handleViewDetail(id) {
     navigate(`/cars/${id}`);
   }
 
   const handleCariMobil = (e) => {
     e.preventDefault();
-
     if (savedCars.length > 0) {
       const filterData = savedCars.filter(
         (items) =>
-          items.name.toLocaleLowerCase() === namaMobil.toLocaleLowerCase() ||
+          items.name.toLowerCase() === namaMobil.toLowerCase() ||
           items.category === kategoriMobil
       );
-      setMobil(filterData);
+
+      if (filterData.length > 0) {
+        setMobil(filterData);
+      } else {
+        handleNotData();
+      }
     }
     setNamaMobil("");
     setKategoriMobil("");
@@ -110,15 +131,21 @@ const CariMobil = () => {
           type="submit"
           className="mt-4"
           onClick={handleCariMobil}
+          disabled={!namaMobil && !kategoriMobil && !hargaMobil}
         >
           Cari Mobil
         </Button>
       </Form>
       <div className="mt-5 hasil-card">
+        {alertVisible ? (
+          <Alert variant="danger" isOpen={alertVisible}>
+            Data tidak ditemukan
+          </Alert>
+        ) : null}
         {loading ? (
-          <LoadingSkeleton panjangMobil={mobil.length} />
+          <LoadingSkeleton />
         ) : (
-          <div className="d-flex flex-wrap align-items-baseline justify-content-around">
+          <div className="d-flex flex-wrap align-items-stretch justify-content-around">
             {mobil.map((result) => {
               return (
                 <Card
