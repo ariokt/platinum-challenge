@@ -27,6 +27,7 @@ const DetailCar = () => {
 
   return (
     <div>
+      <div className="hero-div"></div>
       <div className="detail-section">
         <Card key={car.id} className="card-detail">
           <Card.Body className="d-flex flex-column">

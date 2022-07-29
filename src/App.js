@@ -1,13 +1,11 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import NavigationBar from "./components/SectionNavigationBar";
-import Hero from "./components/SectionHero";
 import Services from "./components/SectionServices";
 import Products from "./components/SectionProducts";
 import Testimonial from "./components/SectionTestimonial";
-import Sewa from "./components/SectionSewa";
 import Faq from "./components/SectionFaq";
 import Footer from "./components/SectionFooter";
 import CarList from "./pages/CarList";
@@ -16,12 +14,10 @@ import LandingPage from "./pages/LandingPage";
 function App() {
   return (
     <div className="App">
-      {/* <Latihan /> */}
       <BrowserRouter>
         <NavigationBar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          {/* <Route path="/" element={<Hero />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/testi" element={<Testimonial />} />
@@ -31,12 +27,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-      {/* <Hero />
-      <Services />
-      <Products />
-      <Testimonial />
-      <Sewa />
-      <Faq /> */}
       <Footer />
     </div>
   );

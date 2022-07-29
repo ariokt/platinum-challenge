@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import SectionHero from "../../components/SectionHero";
-// import Skeleton from "react-loading-skeleton";
+
 import LoadingSkeleton from "../../components/LoadingSkeleton";
 const CariMobil = () => {
   const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
@@ -19,8 +19,6 @@ const CariMobil = () => {
   const [kategoriMobil, setKategoriMobil] = useState("");
   const [hargaMobil, setHargaMobil] = useState("");
   const [alertVisible, setAlertVisible] = useState(false);
-
-  // const [status, setStatus] = useState(false);
 
   useEffect(() => {
     setCarsList(BASE_URL);
@@ -48,7 +46,7 @@ const CariMobil = () => {
   }
 
   const handleNotData = () => {
-    setMobil(savedCars);
+    // setMobil(savedCars);
     setAlertVisible(true);
     setTimeout(() => {
       setAlertVisible(false);
@@ -136,12 +134,17 @@ const CariMobil = () => {
           Cari Mobil
         </Button>
       </Form>
+
       <div className="mt-5 hasil-card">
-        {alertVisible ? (
+        {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
+
+        {alertVisible && (
           <Alert variant="danger" isOpen={alertVisible}>
             Data tidak ditemukan
           </Alert>
-        ) : null}
+        )}
+
+        {/* Skeleton saat loading data */}
         {loading ? (
           <LoadingSkeleton />
         ) : (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import SectionHero from "../../components/SectionHero";
+import SectionHero from "../../SectionHero";
 import { Form, Button, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

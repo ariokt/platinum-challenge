@@ -1,11 +1,19 @@
 import React from "react";
 import "./index.css";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const NavigationBar = () => {
+  const locationNav = useLocation();
   return (
     <div>
-      <Navbar key="md" expand="md" className="navigator">
+      <Navbar
+        key="md"
+        expand="md"
+        className={
+          (locationNav.pathname === "/cars" || locationNav.pathname === "/") &&
+          "navigator"
+        }
+      >
         <Container fluid>
           <Link to="/" className="brand-logo">
             <Navbar.Brand href="#" />
@@ -15,7 +23,7 @@ const NavigationBar = () => {
             id="offcanvasNavbar-expand-md"
             aria-labelledby="offcanvasNavbar-expand-md"
             placement="end"
-            style={{width:"50%"}}
+            style={{ width: "50%" }}
           >
             <Offcanvas.Header closeButton>
               <Link to="/" className="offset-brand-logo">

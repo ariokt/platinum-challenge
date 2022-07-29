@@ -1,5 +1,5 @@
 import React from "react";
-import DetailCar from "../DetailCar";
+import DetailCar from "../../../pages/DetailCar";
 import { Button, Card } from "react-bootstrap";
 import { IntlProvider, FormattedNumber } from "react-intl";
 const SearchResult = (props) => {
