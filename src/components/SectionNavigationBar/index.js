@@ -1,19 +1,12 @@
 import React from "react";
 import "./index.css";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 const NavigationBar = () => {
   const locationNav = useLocation();
   return (
     <div>
-      <Navbar
-        key="md"
-        expand="md"
-        className={
-          (locationNav.pathname === "/cars" || locationNav.pathname === "/") &&
-          "navigator"
-        }
-      >
+      <Navbar key="md" expand="md">
         <Container fluid>
           <Link to="/" className="brand-logo">
             <Navbar.Brand href="#" />

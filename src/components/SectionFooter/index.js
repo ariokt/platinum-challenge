@@ -5,14 +5,6 @@ import IconInstagram from "../../assets/image/icon_instagram.png";
 import IconTwitter from "../../assets/image/icon_twitter.png";
 import IconMail from "../../assets/image/icon_mail.png";
 import IconTwitch from "../../assets/image/icon_twitch.png";
-import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faFacebookSquare,
-//   faInstagram,
-//   faTwitch,
-//   faTwitter,
-// } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -42,15 +34,6 @@ const Footer = () => {
         <div className="footer-connect">
           <p>Connect with us</p>
           <div>
-            {/* <FontAwesomeIcon
-              icon={faFacebookSquare}
-              size="2x"
-              className="connect"
-            />
-            <FontAwesomeIcon icon={faInstagram} size="2x" className="connect" />
-            <FontAwesomeIcon icon={faTwitter} size="2x" className="connect" />
-            <FontAwesomeIcon icon={faCoffee} size="2x" className="connect" />
-            <FontAwesomeIcon icon={faTwitch} size="2x" className="connect" /> */}
             <img src={IconFacebook} alt="" className="connect" />
             <img src={IconInstagram} alt="" className="connect" />
             <img src={IconTwitter} alt="" className="connect" />

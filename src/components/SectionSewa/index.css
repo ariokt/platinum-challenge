@@ -4,7 +4,6 @@
   padding: 1rem;
 }
 
-
 .sewa-container{
   display: flex;
   flex-direction: column;
@@ -21,6 +20,7 @@
   text-align: center;
   padding: 1rem 2rem;
 }
+
 @media only screen and (min-width: 1024px) {
   .sewa-container{
     margin: 2rem 4rem;

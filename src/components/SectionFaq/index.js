@@ -1,8 +1,35 @@
-import React from 'react'
+import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./index.css";
- 
+
 const Faq = () => {
+  const data = [
+    {
+      question: "Apa saja syarat yang dibutuhkan?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, ullam fugiat enim et molestias nobis commodi recusandae vero, fugit sint voluptas, temporibus quo ipsa. Fugit velit perferendis nobis explicabo earum.",
+    },
+    {
+      question: "Berapa hari minimal sewa mobil lepas kunci?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium alias sint officia maxime officiis cumque tempora dolore et fugiat, itaque est maiores aliquam, perspiciatis obcaecati vel veniam nisi? Incidunt, quam!",
+    },
+    {
+      question: "Berapa hari sebelumnya sabaiknya booking sewa mobil?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel autem quis, repellendus odit nobis consequuntur nemo magnam amet quibusdam, ipsa ipsum, temporibus aut nisi voluptas libero non ipsam quos perferendis.",
+    },
+    {
+      question: "Apakah Ada biaya antar-jemput?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, molestias harum vero aliquam architecto, explicabo a ipsa nihil quas obcaecati, fugiat numquam aut veniam doloremque fugit quidem vitae eos! Aliquid!",
+    },
+    {
+      question: "Bagaimana jika terjadi kecelakaan?",
+      answer:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus magni, fuga, omnis provident obcaecati optio velit ab id atque alias corrupti! Eveniet facilis voluptatem, ut dolore suscipit magni aut veniam.",
+    },
+  ];
   return (
     <div>
       <section id="faq" className="faq-section">
@@ -13,71 +40,19 @@ const Faq = () => {
 
         <div className="faq-content">
           <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                Apa saja syarat yang dibutuhkan?
-              </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>
-                Berapa hari minimal sewa mobil lepas kunci?
-              </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-              <Accordion.Header>
-                Berapa hari sebelumnya sabaiknya booking sewa mobil?
-              </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="3">
-              <Accordion.Header>
-                Apakah Ada biaya antar-jemput?
-              </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="4">
-              <Accordion.Header>
-                Bagaimana jika terjadi kecelakaan?
-              </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </Accordion.Body>
-            </Accordion.Item>
+            {data.map((item, index) => {
+              return (
+                <Accordion.Item eventKey={index}>
+                  <Accordion.Header>{item.question}</Accordion.Header>
+                  <Accordion.Body>{item.answer}</Accordion.Body>
+                </Accordion.Item>
+              );
+            })}
           </Accordion>
-          {/* <div className="faq-card">
-            <h1>Apa saja syarat yang dibutuhkan?</h1>
-            <i className="fa fa-chevron-down"></i>
-          </div>
-          <div className="faq-card">
-            <h1>Berapa hari minimal sewa mobil lepas kunci?</h1>
-            <i className="fa fa-chevron-down"></i>
-          </div>
-          <div className="faq-card">
-            <h1>Berapa hari sebelumnya sabaiknya booking sewa mobil?</h1>
-            <i className="fa fa-chevron-down"></i>
-          </div>
-          <div className="faq-card">
-            <h1>Apakah Ada biaya antar-jemput?</h1>
-            <i className="fa fa-chevron-down"></i>
-          </div>
-          <div className="faq-card">
-            <h1>Bagaimana jika terjadi kecelakaan</h1>
-            <i className="fa fa-chevron-down"></i>
-          </div> */}
         </div>
       </section>
     </div>
   );
-}
+};
 
-export default Faq
+export default Faq;

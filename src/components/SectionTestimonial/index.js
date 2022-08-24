@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./index.css"
+import "./index.css";
 import Icon1 from "../../assets/image/img_photo-1.png";
 import Icon2 from "../../assets/image/img_photo-2.png";
 import Slider from "react-slick";
@@ -8,7 +8,7 @@ import {
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LinesEllipsis from "react-lines-ellipsis";
+import { Row, Card, Col } from "react-bootstrap";
 
 export default class PreviousNextMethods extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class PreviousNextMethods extends Component {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 1500,
       slidesToShow: 3,
       slidesToScroll: 3,
       initialSlide: 0,
@@ -34,6 +34,7 @@ export default class PreviousNextMethods extends Component {
         {
           breakpoint: 1024,
           settings: {
+            speed: 1000,
             slidesToShow: 2,
             slidesToScroll: 2,
           },
@@ -41,12 +42,59 @@ export default class PreviousNextMethods extends Component {
         {
           breakpoint: 768,
           settings: {
+            speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
           },
         },
       ],
     };
+
+    const data = [
+      {
+        icon: Icon1,
+        name: "Siti Budomon",
+        age: "21",
+        location: "Jakarta",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+      {
+        icon: Icon2,
+        name: "Sita Budeman",
+        age: "27",
+        location: "Bandung",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+      {
+        icon: Icon1,
+        name: "Siki Budimun",
+        age: "28",
+        location: "Surabaya",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+      {
+        icon: Icon2,
+        name: "Sidi Budimin",
+        age: "24",
+        location: "Riau",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+      {
+        icon: Icon1,
+        name: "Siri Budimon",
+        age: "23",
+        location: "Balikpapan",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+      {
+        icon: Icon2,
+        name: "Simi Budimen",
+        age: "34",
+        location: "Bali",
+        text: `"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus explicabo reprehenderit quisquam neque ducimus laborum architecto sit, repellat saepe, at consequuntur deleniti facere unde cumque alias quaerat beatae fugiat accusantium."`,
+      },
+    ];
+
     return (
       <div>
         <section id="testi" className="testi-section">
@@ -56,172 +104,39 @@ export default class PreviousNextMethods extends Component {
           </div>
           <div className="testi-card-container">
             <Slider ref={(c) => (this.slider = c)} {...settings}>
-              <div key={1}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon1} alt="" />
+              {data.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <Row>
+                      <Col className="p-2">
+                        <Card className="testi-card-content">
+                          <div className="testi-image">
+                            <img src={item.icon} alt="icon" />
+                          </div>
+                          <div>
+                            <div className="testi-star">
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                            </div>
+                            <div className="testi-text">
+                              <p>{item.text}</p>
+                              <p style={{ fontWeight: "600" }}>
+                                {item.name} {item.age}, {item.location}
+                              </p>
+                            </div>
+                          </div>
+                        </Card>
+                      </Col>
+                    </Row>
                   </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Tenetur aliquam animi est debitis? Culpa laborum omnis
-                      beatae consequatur sapiente placeat. Perspiciatis ut amet
-                      nam maxime esse tempora placeat autem facilis."
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Siti Budiman 22, Riau</p>
-                  </div>
-                </div>
-              </div>
-              <div key={2}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon2} alt="" />
-                  </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Voluptatibus aperiam esse velit deleniti laborum eius
-                      vitae repudiandae accusamus nostrum!"
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Budi Budiman 26, Bromo</p>
-                  </div>
-                </div>
-              </div>
-              <div key={3}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon1} alt="" />
-                  </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Corporis iusto obcaecati esse. Doloribus eaque illo quia
-                      quod ad cumque, ut, eligendi ipsam ex, tenetur voluptatem.
-                      Dignissimos quidem nostrum iste architecto?"
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Ani Budiman 45, Prancis</p>
-                  </div>
-                </div>
-              </div>
-              <div key={4}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon2} alt="" />
-                  </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eos facere natus explicabo beatae illum. Ea dolorem
-                      excepturi quam. Sequi laudantium fugiat quos nesciunt
-                      deleniti, assumenda totam enim temporibus modi fugit."
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Frank Budiman 31, Bali</p>
-                  </div>
-                </div>
-              </div>
-              <div key={5}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon1} alt="" />
-                  </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Sandra Budiman 57, Guatemala</p>
-                  </div>
-                </div>
-              </div>
-              <div key={6}>
-                <div className="testi-card-content">
-                  <div className="testi-image">
-                    <img src={Icon2} alt="" />
-                  </div>
-                  <div className="testi-text">
-                    <div className="testi-star">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <LinesEllipsis
-                      text="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Tenetur aliquam animi est debitis? Culpa laborum omnis
-                      beatae consequatur sapiente placeat. Perspiciatis ut amet
-                      nam maxime esse tempora placeat autem facilis."
-                      maxLine="3"
-                      ellipsis="..."
-                      trimRight
-                      basedOn="letters"
-                      className="ellipsis"
-                    />
-                    <p>Roger Budiman 23, Brazil</p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </Slider>
           </div>
+
           <div style={{ textAlign: "center" }}>
             <a
               className="btn"
@@ -246,13 +161,6 @@ export default class PreviousNextMethods extends Component {
                 className="ikon"
               />
             </a>
-            {/* <a className="btn" onClick={this.previous} >
-              <img src={Left1} alt="" />
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a className="btn" onClick={this.next}>
-              <img src={Right1} alt="" />
-            </a> */}
           </div>
         </section>
       </div>

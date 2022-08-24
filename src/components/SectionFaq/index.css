@@ -8,30 +8,42 @@
   padding: 1.5rem;
 }
 .faq-title{
+  width: auto;
+  
+  margin-bottom: 1rem;
   text-align: center;
-  font-weight: 700;
-  font-size: 24px;
+  margin-bottom: 1rem;
 }
 
 .faq-title h1{
-  font-size: 24px;
+  font-size: 30px;
+  font-weight:700;
+  line-height: 36px;
 }
 
 .faq-title p{
-  font-size: 14px ;
+  font-size: 14px;
+  font-weight:400;
+}
+
+.faq-content{
+
 }
 
 @media only screen and (min-width: 768px) {
-      .hero-section, .services-section, .faq-section{
+  .hero-section, .services-section, .faq-section{
     flex-direction: row;
   }
   .faq-section{
-    margin: 1rem;
     align-items: flex-start;
+    padding: 1.5rem;
   }
 
   .faq-title{
     text-align: left;
+  }
+  .faq-content{
+    width: 50%;
   }
 }
 

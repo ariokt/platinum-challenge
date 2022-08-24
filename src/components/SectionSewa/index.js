@@ -15,7 +15,9 @@ const Sewa = () => {
             nihil vel sed.
           </p>
           <Link to="/cars">
-            <Button variant="success">Mulai Sewa Mobil</Button>
+            <Button variant="success">
+              Mulai Sewa Mobil
+            </Button>
           </Link>
         </div>
       </section>

@@ -1,8 +1,4 @@
 .hero-section{
-  background-color: #F1F3FF;
-}
-
-.hero-section{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +31,6 @@
 .hero-content p{
   width: auto;
   font-size: 14px;
-  font-weight: 700;
   line-height: 20px;
   margin-bottom: 1rem;
 }
