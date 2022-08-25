@@ -1,3 +1,7 @@
+.navigator{
+  background-color: #F1F3FF;
+}
+
 .nav-link{
   color: #0D28A6;
   text-decoration: none;
@@ -13,6 +17,7 @@
   height: 34px;
   background-color: #0D28A6;
 }
+
 
 @media only screen and (min-width: 1024px) {
   .brand-logo{

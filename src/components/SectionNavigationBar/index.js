@@ -6,7 +6,14 @@ const NavigationBar = () => {
   const locationNav = useLocation();
   return (
     <div>
-      <Navbar key="md" expand="md">
+      <Navbar
+        key="md"
+        expand="md"
+        className={
+          (locationNav.pathname === "/cars" || locationNav.pathname === "/") &&
+          "navigator"
+        }
+      >
         <Container fluid>
           <Link to="/" className="brand-logo">
             <Navbar.Brand href="#" />
@@ -36,6 +43,18 @@ const NavigationBar = () => {
                 </Link>
                 <Link to="/faq" className="nav-link">
                   <Nav.Link href="#faq">FAQ</Nav.Link>
+                </Link>
+                <Link to="/login" className="nav-link">
+                  <Nav.Link
+                    href="#login"
+                    style={{
+                      backgroundColor: "#5CB85F",
+                      color: "white",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Register
+                  </Nav.Link>
                 </Link>
               </Nav>
             </Offcanvas.Body>

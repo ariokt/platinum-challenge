@@ -11,7 +11,8 @@ import Footer from "./components/SectionFooter";
 import CarList from "./pages/CarList";
 import DetailCar from "./pages/DetailCar";
 import LandingPage from "./pages/LandingPage";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cars" element={<CarList />} />
           <Route path="/cars/:id" element={<DetailCar />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

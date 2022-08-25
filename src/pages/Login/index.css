@@ -1,0 +1,66 @@
+
+.sign-section{
+    padding: 2rem 0.5rem;
+}
+
+.sign-form{
+    text-align:left;
+    padding: 0 1rem;
+}
+
+.sign-form h1{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 2rem 0;
+}
+
+.square{
+    background-color: #CFD4ED;
+}
+
+.btn-submit, 
+.btn-submit:hover, 
+.btn-submit:active, 
+.btn-submit:visited {
+    font-weight: 700 !important;
+    background-color: #0D28A6 !important;
+}
+
+
+.sign-form p{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.sign-link{
+    font-weight: 700;
+    color: #0D28A6;
+}
+
+  img.sign-img { 
+    display: none; 
+  }
+
+@media only screen and (min-width: 1024px) {
+
+    .sign-section{
+        display: flex;
+        flex-wrap:nowrap;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .sign-form{
+        flex-grow:1;
+        padding: 0 9rem;
+    }
+
+    
+  img.sign-img { 
+    display: block; 
+  }
+
+}
