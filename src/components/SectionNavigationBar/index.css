@@ -1,11 +1,31 @@
 .navigator{
   background-color: #F1F3FF;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  opacity: 95%;
 }
 
-.nav-link{
-  color: #0D28A6;
-  text-decoration: none;
+.nav-link__register {
+  background-color: #5CB85F;
+  color: white !important;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem !important;
+  height: fit-content;
 }
+
+.nav-link__logout {
+  background-color: #d92323;
+  color: white !important;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem !important;
+  height: fit-content;
+}
+
+.nav-link__register:hover {
+  background-color: #093609;
+}
+
 .brand-logo{
   margin-left: 0.5rem;
   width: 100px;

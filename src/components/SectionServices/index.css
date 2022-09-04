@@ -34,25 +34,14 @@
   margin-top: 2rem;
 }
 
-.services-list{
-  list-style: none;
-  padding: 0;
-  padding-left: 1em;
+.services-section__list {
+  gap: 18px;
 }
 
-.services-list li {
-  padding-left: 1.3em;
+.services-section__list p {
+  margin-bottom: 0;
 }
 
-.services-list li:before {
-  content: "\f058";
-  font-family: FontAwesome;
-  display: inline-block;
-  margin-left: -1.7em;
-  width: 1.3em;
-  font-size: large; 
-  color: grey;
-}
 @media only screen and (min-width: 768px) {
 .services-section{
     flex-direction: row;

@@ -34,16 +34,16 @@ const Footer = () => {
         <div className="footer-connect">
           <p>Connect with us</p>
           <div>
-            <img src={IconFacebook} alt="" className="connect" />
-            <img src={IconInstagram} alt="" className="connect" />
-            <img src={IconTwitter} alt="" className="connect" />
-            <img src={IconMail} alt="" className="connect" />
-            <img src={IconTwitch} alt="" className="connect" />
+            <img src={IconFacebook} alt="" className="footer-connect__sm" />
+            <img src={IconInstagram} alt="" className="footer-connect__sm" />
+            <img src={IconTwitter} alt="" className="footer-connect__sm" />
+            <img src={IconMail} alt="" className="footer-connect__sm" />
+            <img src={IconTwitch} alt="" className="footer-connect__sm" />
           </div>
         </div>
         <div className="footer-copyright">
           <p>Copyright &copy; 2022 Binar Car Rental</p>
-          <div className="square"></div>
+          <div className="footer__logo"></div>
         </div>
       </div>
     </div>

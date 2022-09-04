@@ -12,18 +12,22 @@ const Products = () => {
     {
       produk: "Mobil Lengkap",
       text: "Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan terawat",
+      img: Icon1,
     },
     {
       produk: "Harga Murah",
       text: "Harga murah dan bersaing, bisa bandingkan harga kami dengan rental mobil lain",
+      img: Icon2,
     },
     {
       produk: "Layanan 24 Jam",
       text: "Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga tersedia di akhir minggu",
+      img: Icon3,
     },
     {
       produk: "Sopir Profesional",
       text: "Sopir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu",
+      img: Icon4,
     },
   ];
   return (
@@ -41,6 +45,7 @@ const Products = () => {
                   key={index}
                   produk={item.produk}
                   text={item.text}
+                  image={item.img}
                 />
               );
             })}
