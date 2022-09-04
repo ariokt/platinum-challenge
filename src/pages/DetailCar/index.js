@@ -8,6 +8,8 @@ import { IntlProvider, FormattedNumber } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import Accordion from "react-bootstrap/Accordion";
+import NavigationBar from "../../components/SectionNavigationBar";
+import Footer from "../../components/SectionFooter";
 
 const DetailCar = () => {
   const [car, setCar] = useState("");
@@ -27,6 +29,7 @@ const DetailCar = () => {
 
   return (
     <div>
+      <NavigationBar />
       <div className="hero-div"></div>
       <div className="detail-section">
         <Card key={car.id} className="card-detail">
@@ -102,6 +105,7 @@ const DetailCar = () => {
           </Card.Body>
         </Card>
       </div>
+      <Footer />
     </div>
   );
 };

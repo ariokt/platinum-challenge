@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import SectionHero from "../../components/SectionHero";
+import NavigationBar from "../../components/SectionNavigationBar";
+import Footer from "../../components/SectionFooter";
 
 import LoadingSkeleton from "../../components/LoadingSkeleton";
 const CariMobil = () => {
@@ -79,6 +81,7 @@ const CariMobil = () => {
 
   return (
     <div>
+      <NavigationBar />
       <SectionHero />
       <Form className="cari-content">
         <Form.Group controlId="formNama" className="mt-3">
@@ -185,6 +188,7 @@ const CariMobil = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,52 +1,51 @@
-
-.signin-section{
+.signup-section{
     padding: 2rem 0.5rem;
 }
 
-.signin-form{
+.signup-form{
     text-align:left;
     padding: 0 1rem;
 }
 
-.signin-form h1{
+.signup-form h1{
     font-weight: 700;
     font-size: 30px;
     line-height: 36px;
     margin: 2rem 0;
 }
 
-.signin-form__logo{
+.signup-form__logo{
     width: 100px;
     height: 34px;
     background-color: #CFD4ED;
   }
 
-.signin-form__btn, 
-.signin-form__btn:hover, 
-.signin-form__btn:active, 
-.signin-form__btn:visited {
+.signup-form__btn, 
+.signup-form__btn:hover, 
+.signup-form__btn:active, 
+.signup-form__btn:visited {
     font-weight: 700 !important;
     background-color: #0D28A6 !important;
 }
 
 
-.signin-form p{
+.signup-form p{
     margin-top: 2rem;
     text-align: center;
 }
 
-.signin-link{
+.signup-link{
     font-weight: 700;
     color: #0D28A6;
 }
 
-img.signin-img { 
+img.signup-img { 
 display: none; 
 }
 
 @media only screen and (min-width: 1024px) {
 
-    .signin-section{
+    .signup-section{
         display: flex;
         flex-wrap:nowrap;
         align-items: center;
@@ -55,13 +54,13 @@ display: none;
         padding: 0;
     }
 
-    .signin-form{
+    .signup-form{
         flex-grow:1;
         padding: 0 9rem;
     }
 
     
-  img.signin-img { 
+  img.signup-img { 
     display: block; 
   }
 

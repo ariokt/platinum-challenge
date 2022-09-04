@@ -4,16 +4,21 @@ import Services from "../../components/SectionServices";
 import Products from "../../components/SectionProducts";
 import Testimonial from "../../components/SectionTestimonial";
 import Sewa from "../../components/SectionSewa";
-import Faq from "../..//components/SectionFaq";
+import Faq from "../../components/SectionFaq";
+import NavigationBar from "../../components/SectionNavigationBar";
+import Footer from "../../components/SectionFooter";
+
 const LandingPage = () => {
   return (
     <div>
+      <NavigationBar />
       <Hero />
       <Services />
       <Products />
       <Testimonial />
       <Sewa />
       <Faq />
+      <Footer />
     </div>
   );
 };

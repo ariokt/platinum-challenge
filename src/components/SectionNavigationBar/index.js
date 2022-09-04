@@ -1,18 +1,17 @@
 import React from "react";
 import "./index.css";
-import { Container, Nav, Navbar, Offcanvas, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 const NavigationBar = () => {
-  const locationNav = useLocation();
+  
+  const location = useLocation();
+  const token = window.localStorage.getItem("token");
+
   return (
-    <div>
+    <div className="navigator">
       <Navbar
         key="md"
         expand="md"
-        className={
-          (locationNav.pathname === "/cars" || locationNav.pathname === "/") &&
-          "navigator"
-        }
       >
         <Container fluid>
           <Link to="/" className="brand-logo">
@@ -31,31 +30,25 @@ const NavigationBar = () => {
               </Link>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Link to="/services" className="nav-link">
-                  <Nav.Link href="#services">Our Services</Nav.Link>
-                </Link>
-                <Link to="/products" className="nav-link">
-                  <Nav.Link href="#products">Why Us</Nav.Link>
-                </Link>
-                <Link to="/testi" className="nav-link">
-                  <Nav.Link href="#testi">Testimonial</Nav.Link>
-                </Link>
-                <Link to="/faq" className="nav-link">
-                  <Nav.Link href="#faq">FAQ</Nav.Link>
-                </Link>
-                <Link to="/login" className="nav-link">
-                  <Nav.Link
-                    href="#login"
-                    style={{
-                      backgroundColor: "#5CB85F",
-                      color: "white",
-                      fontWeight: "700",
-                    }}
-                  >
+              <Nav className="justify-content-end flex-grow-1 pe-3 align-items-center gap-4">
+                <Nav.Link href="#services">Our Services</Nav.Link>
+                <Nav.Link href="#products">Why Us</Nav.Link>
+                <Nav.Link href="#testi">Testimonial</Nav.Link>
+                <Nav.Link href="#faq">FAQ</Nav.Link>
+                {!token ? (
+                  <Link to="/login" className="nav-link nav-link__register" state={location.pathname}>
                     Register
-                  </Nav.Link>
                 </Link>
+                ) : (
+                  <Link
+                    to="/"
+                    className="nav-link nav-link__logout"
+                    onClick={() => window.localStorage.removeItem("token")}
+                  >
+                    Logout
+                  </Link>
+                )}
+                
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

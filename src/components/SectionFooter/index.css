@@ -30,11 +30,11 @@
   width: auto;
 }
 
-.connect{
+.footer-connect__sm{
   padding: 0 0.25rem;
 }
 
-.square{
+.footer__logo{
   width: 100px;
   height: 34px;
   background-color: #0D28A6;
@@ -45,7 +45,7 @@
     flex-direction: row;
   }
 
-  .connect{
+  .footer-connect__sm{
     padding: 0.25rem;
   }
   .footer-detail{
