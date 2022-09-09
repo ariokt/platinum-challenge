@@ -8,6 +8,8 @@ import { IntlProvider, FormattedNumber } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import Accordion from "react-bootstrap/Accordion";
+import DatePick from "../../components/DatePick";
+import ButtonLP from "../../components/ButtonLP";
 
 const DetailCar = () => {
   const [car, setCar] = useState("");
@@ -89,6 +91,10 @@ const DetailCar = () => {
               <FontAwesomeIcon icon={faUserGroup} className="category-icon" />
               <Card.Text>{car.category}</Card.Text>
             </div>
+            <div>
+              <p>Tentukan lama sewa mobil (max. 7 hari)</p>
+            </div>
+            <DatePick />
             <strong className="d-flex justify-content-between mt-5 mb-5">
               <Card.Text>Total</Card.Text>
               <IntlProvider locale="id">
@@ -99,6 +105,7 @@ const DetailCar = () => {
                 />
               </IntlProvider>
             </strong>
+            <ButtonLP />
           </Card.Body>
         </Card>
       </div>

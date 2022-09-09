@@ -1,0 +1,101 @@
+.ticket--container{
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket--bar{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5em;
+    padding-right:5em;
+}
+
+.ticket--bar-left{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.ticket--bar-left h1{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.ticket--bar-left p{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.ticket--bar-right{
+    display:flex;
+    flex-direction: row;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    gap: 8px;
+}
+
+.ticket--success{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:16px;
+}
+
+.ticket--success h2{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.ticket--success p{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8A8A8A;
+}
+
+.ticket--invoice{
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.ticket--invoice h3{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.ticket--invoice p{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3C3C3C;
+}
+
+.ticket--invoice-h{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 24px;
+}

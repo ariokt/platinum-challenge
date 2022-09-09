@@ -12,6 +12,9 @@ import CarList from "./pages/CarList";
 import DetailCar from "./pages/DetailCar";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login"
+import Ticket from "./pages/Ticket";
+import Payment from "./pages/Payment";
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +30,8 @@ function App() {
           <Route path="/cars/:id" element={<DetailCar />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/cars/:id/ticket" element={<Ticket />} />
+          <Route path="/cars/:id/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
       <Footer />
