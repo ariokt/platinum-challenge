@@ -1,14 +1,12 @@
 import React from "react";
-import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import CarImage from "../../assets/image/img_car.png";
 import "./index.css";
 
 const Hero = () => {
-  const [isHidden, setIsHidden] = useState(false);
   const locationCarDetail = useLocation();
-
+  
   return (
     <div>
       <section className="hero-section">
@@ -23,7 +21,7 @@ const Hero = () => {
             <div
               className="hero-button"
               hidden={
-                locationCarDetail.pathname !== "/cars" ? isHidden : !isHidden
+                locationCarDetail.pathname === "/cars" ? true : false
               }
             >
               <Link to="/cars">

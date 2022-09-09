@@ -7,7 +7,7 @@ const CardComponent = ({ produk, text, image }) => {
   return (
     <Col sm="12" md="6" lg="3" className="p-2">
       <Card className="product-card-content align-items-start">
-        <img src={image} />
+        <img src={image} alt=""/>
         <h1 className="pb-2">{produk}</h1>
         <p>{text}</p>
       </Card>
