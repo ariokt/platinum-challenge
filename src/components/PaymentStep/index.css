@@ -1,0 +1,50 @@
+
+.nav-payment {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0rem;
+}
+.number-track{
+    display: flex;
+    gap: 8px;
+    vertical-align: center; 
+    justify-content: center;   
+}
+
+.number-track img {
+    height: 14px;
+    text-align: center;
+}
+.number-track p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.track-payment {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;    
+
+}
+
+.line-track {
+    display: flex;
+    justify-content: center;
+}
+
+.back-payment {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    top: 50%;
+    bottom: 50%;
+}
+.back-payment  {
+    text-decoration: none;
+    color: black;
+}

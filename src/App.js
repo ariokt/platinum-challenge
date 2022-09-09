@@ -1,10 +1,11 @@
 import "./App.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import NavigationBar from "./components/SectionNavigationBar";
 import Services from "./components/SectionServices";
 import Products from "./components/SectionProducts";
+import Payment from "./pages/Payment";
 import Testimonial from "./components/SectionTestimonial";
 import Faq from "./components/SectionFaq";
 import Footer from "./components/SectionFooter";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/cars/:id" element={<DetailCar />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/payment" element={<Payment/>}/>
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -1,0 +1,12 @@
+.drop-area {
+    height: 162;    
+    margin: 16px 54px 24px 54px;
+    margin-left: 54px;
+    margin-right: 54px;    
+
+}
+
+DropZone {
+    background: black;
+    
+}

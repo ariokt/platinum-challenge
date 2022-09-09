@@ -1,0 +1,56 @@
+.detail-pesanan-pay{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    /* width: 405px; */
+    padding: 24px;
+}
+.jenis p {
+    margin-bottom: 0px;
+}
+.jenis div{
+    display: flex;
+    gap: 12px;
+}
+
+.line {
+    height: 1px;
+    background: #D0D0D0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.total-payment {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 24px;
+}
+
+.head-rincian{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.decs-rincian{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.decs-2 {
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.green-text-dec{
+    color: #5CB85F;
+}
+
+.accor-head{
+    padding: 0px;
+}
