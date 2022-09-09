@@ -8,8 +8,8 @@ import { IntlProvider, FormattedNumber } from "react-intl";
 import SectionHero from "../../components/SectionHero";
 import NavigationBar from "../../components/SectionNavigationBar";
 import Footer from "../../components/SectionFooter";
-
 import LoadingSkeleton from "../../components/LoadingSkeleton";
+
 const CariMobil = () => {
   const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
 
@@ -84,7 +84,7 @@ const CariMobil = () => {
       <NavigationBar />
       <SectionHero />
       <Form className="cari-content">
-        <Form.Group controlId="formNama" className="mt-3">
+        <Form.Group controlId="formNama" className="mt-3 flex-fill">
           <Form.Label>Nama Mobil</Form.Label>
           <Form.Control
             type="text"
@@ -94,7 +94,7 @@ const CariMobil = () => {
             value={namaMobil}
           />
         </Form.Group>
-        <Form.Group controlId="formKategori" className="mt-3">
+        <Form.Group controlId="formKategori" className="mt-3 flex-fill">
           <Form.Label>Kategori</Form.Label>
           <Form.Select onChange={(e) => setKategoriMobil(e.target.value)}>
             <option key="blankChoice" hidden>
@@ -105,7 +105,7 @@ const CariMobil = () => {
             <option value="6 - 8 orang">6 - 8 Orang</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formHarga" className="mt-3">
+        <Form.Group controlId="formHarga" className="mt-3 flex-fill">
           <Form.Label>Harga</Form.Label>
           <Form.Select onChange={(e) => setHargaMobil(e.target.value)}>
             <option key="blankChoice" hidden>
@@ -116,7 +116,7 @@ const CariMobil = () => {
             <option value="600000"> &#62; Rp. 600.000</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formSewa" className="mt-3">
+        <Form.Group controlId="formSewa" className="mt-3 flex-fill">
           <Form.Label>Status</Form.Label>
           <Form.Select disabled>
             <option key="blankChoice" hidden>
@@ -130,7 +130,7 @@ const CariMobil = () => {
         <Button
           variant="success"
           type="submit"
-          className="mt-4"
+          className="mt-3"
           onClick={handleCariMobil}
           disabled={!namaMobil && !kategoriMobil && !hargaMobil}
         >
@@ -139,8 +139,8 @@ const CariMobil = () => {
       </Form>
 
       <div className="mt-5 hasil-card">
+        
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
-
         {alertVisible && (
           <Alert variant="danger" isOpen={alertVisible}>
             Data tidak ditemukan
@@ -151,23 +151,18 @@ const CariMobil = () => {
         {loading ? (
           <LoadingSkeleton />
         ) : (
-          <div className="d-flex flex-wrap align-items-stretch justify-content-around">
+          <div className="car-container">
             {mobil.map((result) => {
               return (
                 <Card
                   key={result.id}
-                  style={{ width: "18rem", margin: "1rem" }}
+                  className="car-container__card"
                 >
                   <Card.Img variant="top" src={result.image} />
                   <Card.Body className="d-flex flex-column">
                     <Card.Title>{result.name}</Card.Title>
                     <IntlProvider locale="id">
-                      <FormattedNumber
-                        value={result.price}
-                        style="currency"
-                        currency="IDR"
-                      />{" "}
-                      / hari
+                      Rp <FormattedNumber value={result.price} currency="IDR"/>{" "} / hari
                     </IntlProvider>
                     <Card.Text>
                       Some quick example text to build on the card title and

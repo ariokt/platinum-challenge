@@ -138,7 +138,7 @@ export default class PreviousNextMethods extends Component {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <a
+            <button
               className="btn"
               onClick={this.previous}
               style={{ padding: "0", marginTop: "1.5rem" }}
@@ -148,9 +148,9 @@ export default class PreviousNextMethods extends Component {
                 size="2x"
                 className="ikon"
               />
-            </a>
+            </button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a
+            <button
               className="btn"
               onClick={this.next}
               style={{ padding: "0", marginTop: "1.5rem" }}
@@ -160,7 +160,7 @@ export default class PreviousNextMethods extends Component {
                 size="2x"
                 className="ikon"
               />
-            </a>
+            </button>
           </div>
         </section>
       </div>

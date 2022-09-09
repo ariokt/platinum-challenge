@@ -14,9 +14,7 @@ const NavigationBar = () => {
         expand="md"
       >
         <Container fluid>
-          <Link to="/" className="brand-logo">
-            <Navbar.Brand href="#" />
-          </Link>
+          <Link to="/" className="brand-logo"></Link>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"
@@ -25,9 +23,7 @@ const NavigationBar = () => {
             style={{ width: "50%" }}
           >
             <Offcanvas.Header closeButton>
-              <Link to="/" className="offset-brand-logo">
-                <Navbar.Brand href="#" />
-              </Link>
+              <Link to="/" className="offset-brand-logo"></Link>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3 align-items-center gap-4">
@@ -38,7 +34,7 @@ const NavigationBar = () => {
                 {!token ? (
                   <Link to="/login" className="nav-link nav-link__register" state={location.pathname}>
                     Register
-                </Link>
+                  </Link>
                 ) : (
                   <Link
                     to="/"

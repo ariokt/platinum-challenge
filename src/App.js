@@ -1,16 +1,16 @@
 import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
-import Services from "./components/SectionServices";
-import Products from "./components/SectionProducts";
-import Testimonial from "./components/SectionTestimonial";
-import Faq from "./components/SectionFaq";
 import CarList from "./pages/CarList";
 import DetailCar from "./pages/DetailCar";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import "../node_modules/font-awesome/css/font-awesome.min.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   return (
     <div className="App">

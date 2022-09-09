@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import { Card } from "react-bootstrap";
-const LoadingSkeleton = (panjangMobil) => {
+const LoadingSkeleton = () => {
   return (
     <div>
       <div className="d-flex flex-wrap align-items-baseline justify-content-around">

@@ -28,7 +28,7 @@ const Services = () => {
               wedding, meeting, dll.
             </p>
             <ul className="services-section__list list-unstyled d-flex flex-column">
-                {listContent.map((item,y) => <li key={y} className='d-flex align-items-center'><img src={correctList} className='me-3'/><p>{item}</p></li>)}
+                {listContent.map((item,y) => <li key={y} className='d-flex align-items-center'><img src={correctList} className='me-3'alt=""/><p>{item}</p></li>)}
             </ul>
           </div>
         </div>
