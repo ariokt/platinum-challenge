@@ -139,8 +139,8 @@ const CariMobil = () => {
       </Form>
 
       <div className="mt-5 hasil-card">
+        
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
-
         {alertVisible && (
           <Alert variant="danger" isOpen={alertVisible}>
             Data tidak ditemukan
@@ -151,12 +151,12 @@ const CariMobil = () => {
         {loading ? (
           <LoadingSkeleton />
         ) : (
-          <div className="d-flex flex-wrap align-items-stretch justify-content-around">
+          <div className="car-container">
             {mobil.map((result) => {
               return (
                 <Card
                   key={result.id}
-                  style={{ width: "18rem", margin: "1rem" }}
+                  className="car-container__card"
                 >
                   <Card.Img variant="top" src={result.image} />
                   <Card.Body className="d-flex flex-column">
