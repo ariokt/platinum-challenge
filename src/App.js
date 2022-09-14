@@ -12,6 +12,7 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Invoice from "./pages/Invoice";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/pembayaran" element={<Payment />} />
           </Route>
           <Route path="*" element={<NotFound />} />
+          <Route path='/invoice' element={<Invoice />} />
         </Routes>
       </BrowserRouter>
     </div>
