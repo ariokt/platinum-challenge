@@ -3,14 +3,15 @@
     bottom: 6rem;
     margin-top: 2rem;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
+    margin: 0 auto;
   }
   .card-detail, .card-detail-total{
-    margin: 2rem;
-    width: auto;
+    width: 90%;
+    margin-bottom: 3rem;
+    height: fit-content;
   }
 
   .detail-list li{
@@ -38,19 +39,24 @@
     background-color: #F1F3FF;
     height: 200px;
   }
-@media only screen and (min-width: 768px) { 
+
+  .rdrCalendarWrapper {
+    width: fit-content;
+  }
+
+@media only screen and (min-width: 767px) { 
 
   .card-detail{
-    width: 50%;
+    width: 75%;
   }
 
   .card-detail-total{
-    width: 50%;
+    width: 75%;
 
   }
 }
 
-@media only screen and (min-width: 1024px) { 
+@media only screen and (min-width: 1023px) { 
 
   .detail-section{
     flex-direction: row;
@@ -60,11 +66,24 @@
 
   .card-detail{
     margin: 1rem;
-    width: 50%;
+    flex: 1;
   }
 
   .card-detail-total{
     margin: 1rem;
-    width: 18rem;
+    flex: 1;
+  }
+}
+
+@media only screen and (min-width: 1439px) { 
+
+  .card-detail{
+    margin: 1rem;
+    flex: 1.5;
+  }
+
+  .card-detail-total{
+    margin: 1rem;
+    flex: 1;
   }
 }

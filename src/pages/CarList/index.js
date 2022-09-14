@@ -23,6 +23,7 @@ const CariMobil = () => {
   const [alertVisible, setAlertVisible] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setCarsList(BASE_URL);
   }, []);
 

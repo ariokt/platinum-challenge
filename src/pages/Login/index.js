@@ -10,17 +10,18 @@ import "./index.css";
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const lastOrder = window.localStorage.getItem("LastOrder");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  
 
   async function login() {
     const sendData = {
       email: email,
       password: password
     }
-
     try {
       const res = await axios({
         method:"post",
@@ -28,8 +29,9 @@ const Login = () => {
         data: sendData
       });
       window.localStorage.setItem("token", res.data.access_token);
-      if (location.state) {
-        navigate(location.state);
+      const token = res.data.access_token;
+      if (location.state && lastOrder && token) {
+        sendOrder(token);
       } else {
         navigate("/");
       }
@@ -38,6 +40,21 @@ const Login = () => {
       setError(error.response.data.message);
     }
   }
+
+  async function sendOrder(token) {
+    const sendData = JSON.parse(lastOrder);
+    try {
+        const res = await axios({
+            method:"post",
+            url:"https://bootcamp-rent-car.herokuapp.com/customer/order",
+            headers:{'access_token':token},
+            data:sendData
+        });
+        navigate(location.state, {state: res.data.id}); 
+    } catch (error) {
+        console.log(error);
+    }
+};
 
   const handleLogin = (e) => {
     e.preventDefault();
