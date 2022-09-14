@@ -5,6 +5,8 @@ const PrivateRoutes = () => {
     const token = window.localStorage.getItem("token") ;
     const lastOrder = window.localStorage.getItem("LastOrder");
 
+    
+
     if (token && lastOrder) {
         return (<Outlet />);
     } else if (!lastOrder) {

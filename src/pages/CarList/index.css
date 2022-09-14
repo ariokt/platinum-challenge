@@ -10,7 +10,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 8px grey;
+  box-shadow: 0 0 1px grey;
   border-radius: 15px;
   padding: 1.5rem;
   margin: 0 2rem;
@@ -21,8 +21,7 @@
 }
 
 .hasil-card{
-  background-color: white;  
-  box-shadow: 0 0 8px grey;
+  background-color: white;
   border-radius: 15px;
   padding: 1.5rem;
   margin: 0 2rem;

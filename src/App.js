@@ -25,7 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route element={<PrivateRoutes />}>
-            <Route path="/pembayaran" element={<Payment />} />
+            <Route path="/payment" element={<Payment />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
