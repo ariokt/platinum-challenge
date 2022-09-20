@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../../components/SectionHero";
 import Services from "../../components/SectionServices";
 import Products from "../../components/SectionProducts";
@@ -9,6 +9,7 @@ import NavigationBar from "../../components/SectionNavigationBar";
 import Footer from "../../components/SectionFooter";
 
 const LandingPage = () => {
+
   return (
     <div>
       <NavigationBar />

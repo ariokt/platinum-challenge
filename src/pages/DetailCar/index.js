@@ -23,12 +23,15 @@ const DetailCar = () => {
       key: 'selection',
     }
   ]);
-  // console.log(typeof selectionRange[0].endDate)
   const [jumlahHari, setJumlahHari] = useState(0);
   const [hargaSewa, setHargaSewa] = useState(0);
-  
+  const token = window.localStorage.getItem("token");
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    window.addEventListener('popstate', (e) => { 
+      navigate("/cars"); //tambah
+    });
     const SEARCH_URL = `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`;
     axios
       .get(SEARCH_URL)
@@ -47,14 +50,28 @@ const DetailCar = () => {
     }
   }, [selectionRange, jumlahHari]);
 
+  
+
   const handleBayar = (e) => {
     e.preventDefault();
-    window.localStorage.setItem("LastOrder", JSON.stringify({start_rent_at: selectionRange[0].startDate,
-                                              finish_rent_at: selectionRange[0].endDate,
-                                              car_id: id}));
-    navigate("/pembayaran");
+    const sendData = {start_rent_at: selectionRange[0].startDate,
+                      finish_rent_at: selectionRange[0].endDate,
+                      jumlah_hari_sewa: jumlahHari,
+                      harga_sewa_total: hargaSewa,
+                      harga_sewa_harian: car.price,
+                      car_id: id,
+                      nama_mobil: car.name,
+                      kategori_mobil: car.category,
+                    };
+    if (token) {
+      // sendOrder(token);
+      window.localStorage.setItem("LastOrder", JSON.stringify(sendData));
+      navigate("/payment", {state: sendData});
+    } else {
+      window.localStorage.setItem("LastOrder", JSON.stringify(sendData));
+      navigate("/payment");
+    }
   }
-
 
   return (
     <div>

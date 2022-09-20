@@ -1,0 +1,57 @@
+.intruksi-pembayaran-section {
+    background: #FFFFFF;
+    /* Shadow/Low */
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.head-intruksi-pembayaran{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;  
+}
+
+/* .choose-payment-intruction {
+    display: flex;
+
+    justify-content: space-between;
+    padding: 0px;
+    margin: 0px; 
+} */
+
+
+.line-green {
+    height: 1px;
+    background: #5CB85F;;
+}
+
+.bold-head-name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.default-name-intruction {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+.default-line {
+    height: 1px;
+    background: #EEEEEE;
+}
+
+.ul-detail {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A8A8A;
+}
+
+.intruction-extra p {
+    margin-bottom: 0px;
+}

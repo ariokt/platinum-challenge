@@ -24,8 +24,13 @@ const CariMobil = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    window.addEventListener('popstate', (e) => { 
+      navigate("/"); //tambah
+    });
     setCarsList(BASE_URL);
   }, []);
+
+  
 
   function setCarsList(URL) {
     axios

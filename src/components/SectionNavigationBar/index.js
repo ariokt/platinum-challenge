@@ -1,11 +1,26 @@
 import React from "react";
 import "./index.css";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const NavigationBar = () => {
   
   const location = useLocation();
   const token = window.localStorage.getItem("token");
+  const timer = window.sessionStorage.getItem("TimerPembayaran");
+  const navigate = useNavigate();
+
+  const handleLogo = () => {
+    if (timer) {
+      window.sessionStorage.removeItem("idPesanan");
+      window.sessionStorage.removeItem("pesananBerhasil");
+      window.localStorage.removeItem("dataStep");
+      navigate("/");
+      window.sessionStorage.removeItem("TimerPembayaran");
+      window.location.reload();
+    } else {
+      navigate("/");
+    }
+  }
 
   return (
     <div className="navigator">
@@ -14,7 +29,7 @@ const NavigationBar = () => {
         expand="md"
       >
         <Container fluid>
-          <Link to="/" className="brand-logo"></Link>
+          <div className="brand-logo" onClick={handleLogo}></div>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"

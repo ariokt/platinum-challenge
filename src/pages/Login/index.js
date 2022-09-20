@@ -15,7 +15,22 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  
+
+  // async function sendOrder(token) {
+  //   const sendData = JSON.parse(lastOrder);
+  //   try {
+  //       const res = await axios({
+  //           method:"post",
+  //           url:"https://bootcamp-rent-car.herokuapp.com/customer/order",
+  //           headers:{'access_token':token},
+  //           data:sendData
+  //       });
+  //       navigate(location.state, {state: res.data.id}); 
+  //   } catch (error) {
+  //       console.log(error);
+  //   }
+  // };
+
 
   async function login() {
     const sendData = {
@@ -31,7 +46,8 @@ const Login = () => {
       window.localStorage.setItem("token", res.data.access_token);
       const token = res.data.access_token;
       if (location.state && lastOrder && token) {
-        sendOrder(token);
+        // sendOrder(token);
+        navigate(location.state);
       } else {
         navigate("/");
       }
@@ -40,21 +56,8 @@ const Login = () => {
       setError(error.response.data.message);
     }
   }
-
-  async function sendOrder(token) {
-    const sendData = JSON.parse(lastOrder);
-    try {
-        const res = await axios({
-            method:"post",
-            url:"https://bootcamp-rent-car.herokuapp.com/customer/order",
-            headers:{'access_token':token},
-            data:sendData
-        });
-        navigate(location.state, {state: res.data.id}); 
-    } catch (error) {
-        console.log(error);
-    }
-  };
+  
+  
 
   const handleLogin = (e) => {
     e.preventDefault();
