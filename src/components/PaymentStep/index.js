@@ -7,11 +7,15 @@ import twoToDo from '../../assets/image/track-payment/two-preview.svg';
 import threeTrack from '../../assets/image/track-payment/three-to-do.svg';
 import threeToDo from '../../assets/image/track-payment/three-preview.svg';
 import lineTrack from '../../assets/image/track-payment/line-track.svg';
+import { useNavigate } from "react-router-dom";
 import './index.css';
 
 const PaymentStep = ({ stepDone, pesananBerhasil }) => {
-    const trackLineOne = () => {
+    
+    const timer = window.sessionStorage.getItem("TimerPembayaran");
+    const navigate = useNavigate();
 
+    const trackLineOne = () => {
         if(stepDone.one) {
             return (
                 <div className='number-track'>
@@ -79,10 +83,27 @@ const PaymentStep = ({ stepDone, pesananBerhasil }) => {
         }
     }
 
+    const handleBack = (e) => {
+        e.preventDefault();
+        if (timer) {
+            window.sessionStorage.removeItem("idPesanan");
+            window.sessionStorage.removeItem("pesananBerhasil");
+            window.sessionStorage.removeItem("dataStep");
+            window.sessionStorage.removeItem("TimerPembayaran");
+            window.sessionStorage.removeItem("LastOrder");
+            navigate("/");
+            window.location.reload();
+        } else {
+            window.sessionStorage.removeItem("dataStep");
+            window.sessionStorage.removeItem("LastOrder");
+            navigate("/");
+        }
+    }
+
     return (
         <div className='nav-payment'>
             <div className='back-payment track-payment'>
-                <button href='' className='back-payment'>
+                <button href='' className='back-payment' onClick={handleBack}>
                     <img alt="" src={Back}></img>
                     {pesananBerhasil ? <span>Tiket</span> : <span>Pembayaran</span>}
                 </button>

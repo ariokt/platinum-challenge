@@ -32,8 +32,8 @@ function Timer({ timerType, setDateLimit, setPesananBerhasil, pesananBerhasil })
         if(distance <= 0){
           //stop 
           clearInterval(interval.current);
-          window.localStorage.removeItem("dataStep");
-          window.localStorage.removeItem("LastOrder");
+          window.sessionStorage.removeItem("dataStep");
+          window.sessionStorage.removeItem("LastOrder");
           navigate("/");
         }else {
           if(hours < 10) {

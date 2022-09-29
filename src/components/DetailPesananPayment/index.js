@@ -11,35 +11,10 @@ import { IntlProvider, FormattedNumber } from "react-intl";
 const DetailPesananPayment = ({setDoneMetodePembayaran, carOrder, pembayaran, setStepDone}) => {
 
     const dataStepOne = (data) => {
-        window.localStorage.setItem("dataStep", JSON.stringify(data));
+        window.sessionStorage.setItem("dataStep", JSON.stringify(data));
     }
 
-    // async function sendOrder() {
-    //     const sendData = {start_rent_at: carOrder.start_rent_at,
-    //                     finish_rent_at: carOrder.finish_rent_at,
-    //                     car_id: parseInt(carOrder.car_id)};
-    //     try {
-    //     const res = await axios({
-    //         method:"post",
-    //         url:"https://bootcamp-rent-car.herokuapp.com/customer/order",
-    //         headers:{'access_token':token},
-    //         data:sendData
-    //     });
-    //     setIdPesanan(res.data.id)
-    //     setDoneMetodePembayaran(true);
-    //     setStepDone({one: true, two: false, three: false});
-    //     const data = {pembayaran: pembayaran, doneMetodePembayaran: true, stepDone: {one: true, two: false, three: false}, idPesanan: res.data.id};
-    //     dataStepOne(data);
-        
-    //     window.localStorage.setItem("PembayaranPesanan", )
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     function statusPembayaran() {
-        // sendOrder();
-        // setPreviousPage(pembayaran);
         setDoneMetodePembayaran(true);
         setStepDone({one: true, two: false, three: false});
         const data = {pembayaran: pembayaran, doneMetodePembayaran: true, stepDone: {one: true, two: false, three: false}};

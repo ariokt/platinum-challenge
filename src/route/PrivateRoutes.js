@@ -3,7 +3,7 @@ import { Outlet, Navigate, useLocation } from 'react-router-dom'
 const PrivateRoutes = () => {
     const location = useLocation();
     const token = window.localStorage.getItem("token") ;
-    const lastOrder = window.localStorage.getItem("LastOrder");
+    const lastOrder = window.sessionStorage.getItem("LastOrder");
 
     
 

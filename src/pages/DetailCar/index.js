@@ -64,11 +64,10 @@ const DetailCar = () => {
                       kategori_mobil: car.category,
                     };
     if (token) {
-      // sendOrder(token);
-      window.localStorage.setItem("LastOrder", JSON.stringify(sendData));
+      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
       navigate("/payment", {state: sendData});
     } else {
-      window.localStorage.setItem("LastOrder", JSON.stringify(sendData));
+      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
       navigate("/payment");
     }
   }

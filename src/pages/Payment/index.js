@@ -16,8 +16,8 @@ import './index.css'
 const Payment = () => {
     const navigate = useNavigate();
     const token = window.localStorage.getItem("token");
-    const carOrder = JSON.parse(window.localStorage.getItem("LastOrder"));
-    const dataStep = JSON.parse(window.localStorage.getItem("dataStep"));
+    const carOrder = JSON.parse(window.sessionStorage.getItem("LastOrder"));
+    const dataStep = JSON.parse(window.sessionStorage.getItem("dataStep"));
     const [pembayaran, setPembayaran] = useState("")
     const [doneMetodePembayaran, setDoneMetodePembayaran] = useState(false);
     const [stepDone, setStepDone] = useState({one: false, two: false, three: false});
@@ -25,13 +25,14 @@ const Payment = () => {
     const [pesananBerhasil, setPesananBerhasil] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const getIdPesanan = window.sessionStorage.getItem("idPesanan");
         const getPesananBerhasil = window.sessionStorage.getItem("pesananBerhasil")
-        if (getIdPesanan && getPesananBerhasil) {
+        if (getIdPesanan && getPesananBerhasil) { // mempertahankan halaman invoice ketika di refresh
             setIdPesanan(parseInt(getIdPesanan));
             setPesananBerhasil(true);
             setStepDone({one: true, two: true, three: false});
-        } else if (dataStep) {
+        } else if (dataStep) { // mempertahankan halaman pembayaran setelah memilih metode pembayaran
             setPembayaran(dataStep.pembayaran);
             setDoneMetodePembayaran(dataStep.doneMetodePembayaran);
             setStepDone(dataStep.stepDone);
@@ -40,9 +41,10 @@ const Payment = () => {
         window.addEventListener('popstate', () => { 
             window.sessionStorage.removeItem("idPesanan");
             window.sessionStorage.removeItem("pesananBerhasil");
-            window.localStorage.removeItem("dataStep");
-            navigate("/");
+            window.sessionStorage.removeItem("dataStep");
             window.sessionStorage.removeItem("TimerPembayaran");
+            window.sessionStorage.removeItem("LastOrder");
+            navigate("/");
             window.location.reload();
         });
     }, []);

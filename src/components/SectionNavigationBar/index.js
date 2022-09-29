@@ -11,14 +11,17 @@ const NavigationBar = () => {
 
   const handleLogo = () => {
     if (timer) {
-      window.sessionStorage.removeItem("idPesanan");
-      window.sessionStorage.removeItem("pesananBerhasil");
-      window.localStorage.removeItem("dataStep");
-      navigate("/");
-      window.sessionStorage.removeItem("TimerPembayaran");
-      window.location.reload();
+        window.sessionStorage.removeItem("idPesanan");
+        window.sessionStorage.removeItem("pesananBerhasil");
+        window.sessionStorage.removeItem("dataStep");
+        window.sessionStorage.removeItem("TimerPembayaran");
+        window.sessionStorage.removeItem("LastOrder");
+        navigate("/");
+        window.location.reload();
     } else {
-      navigate("/");
+        window.sessionStorage.removeItem("dataStep");
+        window.sessionStorage.removeItem("LastOrder");
+        navigate("/");
     }
   }
 
