@@ -46,7 +46,7 @@ export default function Invoice({ idPesanan, token }) {
           <p>Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
         </div>
         <Card className='ticket--invoice'>
-          <div className='ticket--invoice-h'>
+          <div className='ticket--invoice-h align-items-center mb-3'>
             <div className='ticket--invoive-hl'>
               <h3>Invoice</h3>
             </div>

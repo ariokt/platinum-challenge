@@ -1,6 +1,8 @@
 import React from 'react';
 import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import { IntlProvider, FormattedNumber } from "react-intl";
+import DownloadImage from "../../assets/image/fi_download.svg";
+import "./index.css";
 
 const styles = StyleSheet.create({
   page: {
@@ -43,11 +45,9 @@ export const PdfView = ({ dataPesanan }) => {
 function PdfUnduh({ dataPesanan }) {
   if (dataPesanan) {
     return (
-      <div className="App">
-        <PDFDownloadLink document={<PdfView dataPesanan={dataPesanan}/>} fileName="binar-car-invoice.pdf">
-        {({ loading }) => (loading ? 'Loading document...' : 'Unduh!')}
-        </PDFDownloadLink>
-      </div>
+      <PDFDownloadLink document={<PdfView dataPesanan={dataPesanan}/>} fileName="binar-car-invoice.pdf">
+      {({ loading }) => (loading ? 'Loading document...' : <div className='download-button d-flex gap-2'><img src={DownloadImage}/>Unduh</div>)}
+      </PDFDownloadLink>
     );
   } 
 }

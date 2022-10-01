@@ -34,7 +34,7 @@ const Products = () => {
     <div>
       <section id="products" className="product-section">
         <div className="product-title">
-          <h1>Why Us?</h1>
+          <h2>Why Us?</h2>
           <p>Mengapa harus pilih Binar Car Rental?</p>
         </div>
         <div className="product-card-container">

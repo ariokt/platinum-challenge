@@ -49,19 +49,18 @@ const NavigationBar = () => {
                 <Nav.Link href="#products">Why Us</Nav.Link>
                 <Nav.Link href="#testi">Testimonial</Nav.Link>
                 <Nav.Link href="#faq">FAQ</Nav.Link>
-                {!token ? (
-                  <Link to="/login" className="nav-link nav-link__register" state={location.pathname}>
-                    Register
-                  </Link>
-                ) : (
-                  <Link
-                    to="/"
-                    className="nav-link nav-link__logout"
-                    onClick={() => window.localStorage.removeItem("token")}
-                  >
-                    Logout
-                  </Link>
+                {!token && (<Link to="/login" className="nav-link nav-link__register" state={location.pathname}>Register</Link> )}
+
+                {(location.pathname !== '/payment' && token) && (
+                  <Link to="." className="nav-link nav-link__logout" onClick={() => window.localStorage.removeItem("token")}> Logout</Link>
                 )}
+
+                {(location.pathname === '/payment' && token) && (
+                  <Link to="." className="nav-link nav-link__logout nav-link--disabled"> Logout</Link>
+                )}
+                
+                  
+                
                 
               </Nav>
             </Offcanvas.Body>
