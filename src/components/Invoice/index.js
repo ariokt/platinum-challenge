@@ -28,9 +28,9 @@ export default function Invoice({ idPesanan, token }) {
         });
         setDataPesanan(res.data);
       } catch (error) {
-        console.log(error);
+        window.alert("Error "+error);
       }
-    };
+    }
     getOrder();
   }, []);
 
@@ -62,6 +62,6 @@ export default function Invoice({ idPesanan, token }) {
         </Card>
       </div>
     );
-  };  
+  } 
 }
 

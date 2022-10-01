@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import './index.css'
 import UserLogo from '../../assets/image/fi_users.svg'
 import Accordion from "react-bootstrap/Accordion";

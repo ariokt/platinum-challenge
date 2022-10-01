@@ -24,7 +24,7 @@ const CariMobil = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    window.addEventListener('popstate', (e) => { 
+    window.addEventListener('popstate', () => { 
       navigate("/"); //tambah
     });
     setCarsList(BASE_URL);
@@ -169,7 +169,7 @@ const CariMobil = () => {
                     </IntlProvider>
                     <Card.Text>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the cards content.
                     </Card.Text>
                     <div className="d-grid mt-auto">
                       <Button

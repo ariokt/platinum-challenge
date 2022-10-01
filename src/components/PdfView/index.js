@@ -34,7 +34,7 @@ export const PdfView = ({ dataPesanan }) => {
               </View>
               <View style={styles.section} className="d-flex flex-column">
                   <Text style={styles.text}>Status: Paid</Text>
-                  <Text style={styles.text}>Admin: Ario Waskita</Text>
+                  <Text style={styles.text}>Admin: Kelompok 1</Text>
               </View>
           </Page>
       </Document>

@@ -79,7 +79,7 @@ const Login = () => {
             </Button>
           </div>
           <p>
-            Don't have an account?{" "}
+            Dont have an account?{" "}
             <Link to="/register" className="signin-link">
               Sign Up for free
             </Link>

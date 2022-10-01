@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios({
+      await axios({
         method: "post",
         url: "https://bootcamp-rent-car.herokuapp.com/customer/auth/register",
         data: sendData

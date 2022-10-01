@@ -29,8 +29,8 @@ const DetailCar = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    window.addEventListener('popstate', (e) => { 
-      navigate("/cars"); //tambah
+    window.addEventListener('popstate', () => { 
+      navigate("/cars");
     });
     const SEARCH_URL = `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`;
     axios
@@ -44,9 +44,9 @@ const DetailCar = () => {
   }, []);
 
   useEffect(() => {
-    if (selectionRange[0].endDate && selectionRange[0].startDate) {
-      setJumlahHari((selectionRange[0].endDate - selectionRange[0].startDate)/86400000+1);
-      setHargaSewa(car.price*jumlahHari);
+    if (selectionRange[0].endDate && selectionRange[0].startDate) { //kalau udah select tanggal
+      setJumlahHari((selectionRange[0].endDate - selectionRange[0].startDate)/86400000+1); // hitung berapa hari berdasarkan tanggal yang dipilih
+      setHargaSewa(car.price*jumlahHari); // menentukan harga
     }
   }, [selectionRange, jumlahHari]);
 
@@ -54,17 +54,17 @@ const DetailCar = () => {
 
   const handleBayar = (e) => {
     e.preventDefault();
-    const sendData = {start_rent_at: selectionRange[0].startDate,
-                      finish_rent_at: selectionRange[0].endDate,
-                      jumlah_hari_sewa: jumlahHari,
-                      harga_sewa_total: hargaSewa,
-                      harga_sewa_harian: car.price,
-                      car_id: id,
-                      nama_mobil: car.name,
-                      kategori_mobil: car.category,
+    const sendData = {start_rent_at: selectionRange[0].startDate, //tanggal awal sewa
+                      finish_rent_at: selectionRange[0].endDate, // tanggal akhir sewa
+                      jumlah_hari_sewa: jumlahHari, // jumlah hari
+                      harga_sewa_total: hargaSewa, // total biaya
+                      harga_sewa_harian: car.price, // harga sewa per hari
+                      car_id: id, // id mobil
+                      nama_mobil: car.name, // nama mobil
+                      kategori_mobil: car.category, // kategori mobil
                     };
-    if (token) {
-      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
+    if (token) { //udah login atau belum
+      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData)); 
       navigate("/payment", {state: sendData});
     } else {
       window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));

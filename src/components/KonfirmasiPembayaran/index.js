@@ -24,9 +24,9 @@ function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, setPesananBerhasi
         window.sessionStorage.setItem("idPesanan", res.data.id);
         setReadyConfirm(!readyConfirm); 
       } catch (error) {
-          console.log(error);
+        window.alert("Error "+error);
       }
-    };
+    }
 
     function changeConfirm() {
         sendOrder();

@@ -15,7 +15,7 @@ function IntruksiPembayaran({ pembayaran }) {
         return <div >
             <ul className='ul-detail'>
                 <li>Masukkan Kartu ATM, lalu PIN</li>
-                <li>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek {pembayaran.slice(0,3)} Virtual Account"</li>
+                <li>Pilih menu `&ldquo;`Transaksi Lainnya`&rdquo;` - `&ldquo;`Transfer`&rdquo;` - `&ldquo;`Ke Rek {pembayaran.slice(0,3)} Virtual Account`&rdquo;`</li>
                 <li className='intruction-extra'>
                     <p>Masukkan nomor {pembayaran.slice(0,3)} Virtual Account: 70020+OrderId</p>
                     <p>Contoh</p>
