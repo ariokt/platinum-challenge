@@ -23,8 +23,14 @@ const CariMobil = () => {
   const [alertVisible, setAlertVisible] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('popstate', () => { 
+      navigate("/"); //tambah
+    });
     setCarsList(BASE_URL);
   }, []);
+
+  
 
   function setCarsList(URL) {
     axios
@@ -139,7 +145,6 @@ const CariMobil = () => {
       </Form>
 
       <div className="mt-5 hasil-card">
-        
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
         {alertVisible && (
           <Alert variant="danger" isOpen={alertVisible}>
@@ -155,18 +160,16 @@ const CariMobil = () => {
             {mobil.map((result) => {
               return (
                 <Card
-                  key={result.id}
-                  className="car-container__card"
-                >
-                  <Card.Img variant="top" src={result.image} />
-                  <Card.Body className="d-flex flex-column">
+                  key={result.id}>
+                  <Card.Img className="car-container__card-img" variant="top" src={result.image} />
+                  <Card.Body className="car-container__card-body d-flex flex-column">
                     <Card.Title>{result.name}</Card.Title>
                     <IntlProvider locale="id">
                       Rp <FormattedNumber value={result.price} currency="IDR"/>{" "} / hari
                     </IntlProvider>
                     <Card.Text>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the cards content.
                     </Card.Text>
                     <div className="d-grid mt-auto">
                       <Button

@@ -1,0 +1,66 @@
+.tujuan-pembayaran-section {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.head-tujuan-pembayaran{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.bank-Logo {
+    width: 61px;
+    height: 30px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #D0D0D0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px
+
+}
+.bank-Logo p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.bank-tujuan-logo {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.bank-tujuan-logo p {
+    margin-bottom: 4px;
+}
+
+.nama-bank{
+    display: flex;
+    gap: 16px;
+}
+
+.tujuan-detail {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #3C3C3C;
+    margin-bottom: 4px;
+    margin-top: 16px;
+}
+
+.box-tujuan-detail {
+    /* height: 36px; */
+    border: 1px solid #3C3C3C;
+    border-radius: 2px;
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 12px
+}

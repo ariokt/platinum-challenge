@@ -1,0 +1,28 @@
+.count-down-section {
+    display: flex;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.count-head{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 0px;
+}
+
+.count-detail {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 14px;
+
+}
+
+.count-timer {
+    margin-top: 10px;
+}

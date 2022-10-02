@@ -9,6 +9,12 @@ import NavigationBar from "../../components/SectionNavigationBar";
 import Footer from "../../components/SectionFooter";
 
 const LandingPage = () => {
+  const timer = window.sessionStorage.getItem("TimerPembayaran");
+  if (timer) {
+    window.sessionStorage.removeItem("TimerPembayaran");
+    window.location.reload();
+  }
+
   return (
     <div>
       <NavigationBar />

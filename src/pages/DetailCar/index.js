@@ -1,22 +1,38 @@
-import React from "react";
-import "./index.css";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Card, Accordion, Button } from "react-bootstrap";
 import axios from "axios";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
-import Accordion from "react-bootstrap/Accordion";
 import NavigationBar from "../../components/SectionNavigationBar";
 import Footer from "../../components/SectionFooter";
+import { DateRange } from "react-date-range";
+import "./index.css";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 const DetailCar = () => {
   const [car, setCar] = useState("");
   const { id } = useParams();
-  const SEARCH_URL = `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`;
+  const navigate = useNavigate();
+  const [selectionRange, setSelectionRange] = useState([
+    {
+      startDate: null,
+      endDate: null,
+      key: 'selection',
+    }
+  ]);
+  const [jumlahHari, setJumlahHari] = useState(0);
+  const [hargaSewa, setHargaSewa] = useState(0);
+  // const token = window.localStorage.getItem("token");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('popstate', () => { 
+      navigate("/cars");
+    });
+    const SEARCH_URL = `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`;
     axios
       .get(SEARCH_URL)
       .then((response) => {
@@ -27,12 +43,43 @@ const DetailCar = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (selectionRange[0].endDate && selectionRange[0].startDate) { //kalau udah select tanggal
+      setJumlahHari((selectionRange[0].endDate - selectionRange[0].startDate)/86400000+1); // hitung berapa hari berdasarkan tanggal yang dipilih
+      setHargaSewa(car.price*jumlahHari); // menentukan harga
+    }
+  }, [selectionRange, jumlahHari]);
+
+  
+
+  const handleBayar = (e) => {
+    e.preventDefault();
+    const sendData = {start_rent_at: selectionRange[0].startDate, //tanggal awal sewa
+                      finish_rent_at: selectionRange[0].endDate, // tanggal akhir sewa
+                      jumlah_hari_sewa: jumlahHari, // jumlah hari
+                      harga_sewa_total: hargaSewa, // total biaya
+                      harga_sewa_harian: car.price, // harga sewa per hari
+                      car_id: id, // id mobil
+                      nama_mobil: car.name, // nama mobil
+                      kategori_mobil: car.category, // kategori mobil
+                    };
+    // if (token) { //udah login atau belum
+    //   window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData)); 
+    //   navigate("/payment", {state: sendData});
+    // } else {
+    //   window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
+    //   navigate("/payment");
+    // }
+    window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
+    navigate("/payment"); 
+  }
+
   return (
     <div>
       <NavigationBar />
       <div className="hero-div"></div>
-      <div className="detail-section">
-        <Card key={car.id} className="card-detail">
+      <div className="detail-section w-75">
+        <Card className="card-detail">
           <Card.Body className="d-flex flex-column">
             <Card.Title className="detail-title">Tentang Paket</Card.Title>
             <Card.Title className="detail-title">Include</Card.Title>
@@ -84,25 +131,32 @@ const DetailCar = () => {
             </Accordion>
           </Card.Body>
         </Card>
-        <Card key={car.id} className="card-detail-total">
+        <Card className="card-detail-total d-flex flex-direction-column gap-3 p-md-4">
           <Card.Img variant="top" src={car.image} />
-          <Card.Body className="d-flex flex-column">
+          <Card.Body className="d-flex flex-column gap-2">
             <Card.Title className="detail-title">{car.name}</Card.Title>
             <div className="d-flex category">
               <FontAwesomeIcon icon={faUserGroup} className="category-icon" />
               <Card.Text>{car.category}</Card.Text>
             </div>
-            <strong className="d-flex justify-content-between mt-5 mb-5">
+            <p>Tentukan lama sewa mobil (max. 7 hari)</p>
+            <DateRange
+            className="card-detail__calender"
+            startDatePlaceholder="Tanggal Awal Sewa"
+            endDatePlaceholder="Tanggal Akhir Sewa"
+            onChange={item => setSelectionRange([item.selection])}
+            retainEndDateOnFirstSelection={true}
+            ranges={selectionRange}
+            />
+            <strong className="d-flex justify-content-between">
               <Card.Text>Total</Card.Text>
               <IntlProvider locale="id">
-                <FormattedNumber
-                  value={car.price}
-                  style="currency"
-                  currency="IDR"
-                />
+                Rp <FormattedNumber value={hargaSewa} currency="IDR"/>{" "}
               </IntlProvider>
             </strong>
           </Card.Body>
+          {jumlahHari ? <Button variant='success' style={{width: '100%'}} onClick={handleBayar}>Lanjutkan Pembayaran</Button> :
+            <Button variant='success' style={{width: '100%'}} disabled>Lanjutkan Pembayaran</Button>}
         </Card>
       </div>
       <Footer />

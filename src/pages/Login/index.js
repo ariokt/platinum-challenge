@@ -10,6 +10,7 @@ import "./index.css";
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const lastOrder = window.sessionStorage.getItem("LastOrder");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +21,6 @@ const Login = () => {
       email: email,
       password: password
     }
-
     try {
       const res = await axios({
         method:"post",
@@ -28,7 +28,8 @@ const Login = () => {
         data: sendData
       });
       window.localStorage.setItem("token", res.data.access_token);
-      if (location.state) {
+      const token = res.data.access_token;
+      if (location.state && lastOrder && token) {
         navigate(location.state);
       } else {
         navigate("/");
@@ -78,7 +79,7 @@ const Login = () => {
             </Button>
           </div>
           <p>
-            Don't have an account?{" "}
+            Dont have an account?{" "}
             <Link to="/register" className="signin-link">
               Sign Up for free
             </Link>

@@ -1,0 +1,37 @@
+.konfirmasi-section{
+    background: #FFFFFF;
+    /* Shadow/Low */
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px; 
+    padding: 24px;
+}
+
+.not-ready-box{
+    text-align: center;
+}
+.not-ready-box p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+.not-ready-box div{
+    margin-top: 44px;
+}
+
+.head-confirm {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.decs-confirm {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.head-confirm {
+    display: flex;
+    justify-content: space-between;
+}

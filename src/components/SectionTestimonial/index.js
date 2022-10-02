@@ -99,7 +99,7 @@ export default class PreviousNextMethods extends Component {
       <div>
         <section id="testi" className="testi-section">
           <div className="testi-title">
-            <h1>Testimonial</h1>
+            <h2>Testimonial</h2>
             <p>Berbagai review positif dari para pelanggan kami</p>
           </div>
           <div className="testi-card-container">
