@@ -3,9 +3,10 @@ import './index.css'
 
 
 function IntruksiPembayaran({ pembayaran }) {
-    const [onIntruction, setOnIntruction] = useState(`ATM ${pembayaran.slice(0,3)}`)
-    const greenLine = 'line-green'
-    const boldName = 'bold-head-name'
+    const [onIntruction, setOnIntruction] = useState(`ATM ${pembayaran}`);
+    const greenLine = 'line-green';
+    const boldName = 'bold-head-name';
+    pembayaran = pembayaran.replace(' Transfer','');
     
     function onClickIntrction(name) {
         setOnIntruction(name);
@@ -15,9 +16,9 @@ function IntruksiPembayaran({ pembayaran }) {
         return <div >
             <ul className='ul-detail'>
                 <li>Masukkan Kartu ATM, lalu PIN</li>
-                <li>Pilih menu &ldquo;Transaksi Lainnya&rdquo; - &ldquo;Transfer&rdquo; - &ldquo;Ke Rek {pembayaran.slice(0,3)} Virtual Account&rdquo;</li>
+                <li>Pilih menu &ldquo;Transaksi Lainnya&rdquo; - &ldquo;Transfer&rdquo; - &ldquo;Ke Rek {pembayaran} Virtual Account&rdquo;</li>
                 <li className='intruction-extra'>
-                    <p>Masukkan nomor {pembayaran.slice(0,3)} Virtual Account: 70020+OrderId</p>
+                    <p>Masukkan nomor {pembayaran} Virtual Account: 70020+OrderId</p>
                     <p>Contoh</p>
                     <p>No. Peserta: 12345678, maka ditulis 7002012345678</p>
                 </li>
@@ -30,17 +31,17 @@ function IntruksiPembayaran({ pembayaran }) {
     <div className='intruksi-pembayaran-section'>
       <p className='head-intruksi-pembayaran'>Intruksi Pembayaran</p>
       <div className='choose-payment-intruction row no-gutters'>
-            <div className='col no-gutter' onClick={() => onClickIntrction(`ATM ${pembayaran.slice(0,3)}`)}>
-                <p className={onIntruction === `ATM ${pembayaran.slice(0,3)}` ? boldName : 'default-name-intruction'}>ATM {pembayaran.slice(0,3)}</p>
-                <div className={onIntruction === `ATM ${pembayaran.slice(0,3)}` ? greenLine : 'default-line'}></div>
+            <div className='col no-gutter' onClick={() => onClickIntrction(`ATM ${pembayaran}`)}>
+                <p className={onIntruction === `ATM ${pembayaran}` ? boldName : 'default-name-intruction'}>ATM {pembayaran}</p>
+                <div className={onIntruction === `ATM ${pembayaran}` ? greenLine : 'default-line'}></div>
             </div>
-            <div className='col no-gutter' onClick={() => onClickIntrction(`M-${pembayaran.slice(0,3)}`)}>
-                <p className={onIntruction === `M-${pembayaran.slice(0,3)}` ? boldName : 'default-name-intruction'}>M-{pembayaran.slice(0,3)}</p>
-                <div className={onIntruction === `M-${pembayaran.slice(0,3)}` ? greenLine : 'default-line'}></div>
+            <div className='col no-gutter' onClick={() => onClickIntrction(`M-${pembayaran}`)}>
+                <p className={onIntruction === `M-${pembayaran}` ? boldName : 'default-name-intruction'}>M-{pembayaran}</p>
+                <div className={onIntruction === `M-${pembayaran}` ? greenLine : 'default-line'}></div>
             </div>
-            <div className='col no-gutter' onClick={() => onClickIntrction(`${pembayaran.slice(0,3)} Klik`)}>
-                <p className={onIntruction === `${pembayaran.slice(0,3)} Klik` ? boldName : 'default-name-intruction'}>{pembayaran.slice(0,3)} Klik</p>
-                <div className={onIntruction === `${pembayaran.slice(0,3)} Klik` ? greenLine : 'default-line'}></div>
+            <div className='col no-gutter' onClick={() => onClickIntrction(`${pembayaran} Klik`)}>
+                <p className={onIntruction === `${pembayaran} Klik` ? boldName : 'default-name-intruction'}>{pembayaran} Klik</p>
+                <div className={onIntruction === `${pembayaran} Klik` ? greenLine : 'default-line'}></div>
             </div>
             <div className='col no-gutter' onClick={() => onClickIntrction('Internet Bank')}>
                 <p className={onIntruction === 'Internet Bank' ? boldName : 'default-name-intruction'}>Internet Banking</p>

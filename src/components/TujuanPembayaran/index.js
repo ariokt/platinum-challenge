@@ -4,12 +4,13 @@ import { IntlProvider, FormattedNumber } from "react-intl";
 import './index.css'
 
 function TujuanPembayaran({ pembayaran, totalPrice }) {
+  pembayaran = pembayaran.replace(' Transfer','');
 
   return (
     <div className='tujuan-pembayaran-section'>
       <p className='head-tujuan-pembayaran'>Lakukan Transfer Ke</p>
       <div className='nama-bank'>
-        <div className='bank-Logo'><p>{pembayaran.slice(0,4)}</p></div>
+        <div className='bank-Logo'><p>{pembayaran}</p></div>
         <div className='bank-tujuan-logo'>
             <p>{pembayaran}</p>
             <p>a.n Binar Car Rental</p>

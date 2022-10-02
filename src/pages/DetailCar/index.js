@@ -25,7 +25,7 @@ const DetailCar = () => {
   ]);
   const [jumlahHari, setJumlahHari] = useState(0);
   const [hargaSewa, setHargaSewa] = useState(0);
-  const token = window.localStorage.getItem("token");
+  // const token = window.localStorage.getItem("token");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,13 +63,15 @@ const DetailCar = () => {
                       nama_mobil: car.name, // nama mobil
                       kategori_mobil: car.category, // kategori mobil
                     };
-    if (token) { //udah login atau belum
-      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData)); 
-      navigate("/payment", {state: sendData});
-    } else {
-      window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
-      navigate("/payment");
-    }
+    // if (token) { //udah login atau belum
+    //   window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData)); 
+    //   navigate("/payment", {state: sendData});
+    // } else {
+    //   window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
+    //   navigate("/payment");
+    // }
+    window.sessionStorage.setItem("LastOrder", JSON.stringify(sendData));
+    navigate("/payment"); 
   }
 
   return (
