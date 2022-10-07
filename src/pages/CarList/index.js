@@ -21,7 +21,6 @@ const CariMobil = () => {
   const [kategoriMobil, setKategoriMobil] = useState("");
   const [hargaMobil, setHargaMobil] = useState("");
   const [alertVisible, setAlertVisible] = useState(false);
-  console.log(hargaMobil)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,7 +101,6 @@ const CariMobil = () => {
         );
       }
       if (filterData.length > 0) {
-        console.log(filterData)
         setMobil(filterData);
       } else {
         handleNotData();

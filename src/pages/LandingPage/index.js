@@ -12,6 +12,7 @@ const LandingPage = () => {
   const timer = window.sessionStorage.getItem("TimerPembayaran");
   if (timer) {
     window.sessionStorage.removeItem("TimerPembayaran");
+    window.sessionStorage.removeItem("dataStep");
     window.location.reload();
   }
 
