@@ -68,12 +68,38 @@ const CariMobil = () => {
   const handleCariMobil = (e) => {
     e.preventDefault();
     if (savedCars.length > 0) {
-      const filterData = savedCars.filter(
-        (items) =>
-          items.name.toLowerCase() === namaMobil.toLowerCase() ||
-          items.category === kategoriMobil
-      );
-
+      let filterData;
+      if (hargaMobil.includes("-")) {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price > parseInt(hargaMobil.slice(0,6)) && item.price < parseInt(hargaMobil.slice(7,13)));
+          }
+        );
+      } else if (hargaMobil === "400000") {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price < parseInt(hargaMobil));
+          }
+        );
+      } else if (hargaMobil === "600000") {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price > parseInt(hargaMobil));
+          }
+        );
+      } else if (kategoriMobil) {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.category === kategoriMobil);
+          }
+        );
+      } else {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.name.toLowerCase() === namaMobil.toLowerCase());
+          }
+        );
+      }
       if (filterData.length > 0) {
         setMobil(filterData);
       } else {
@@ -118,7 +144,7 @@ const CariMobil = () => {
               Masukan Harga Sewa per Hari
             </option>
             <option value="400000"> &#60; Rp.400.000 </option>
-            <option value="500000">Rp.400.000 - Rp. 600.000</option>
+            <option value="400000-600000">Rp.400.000 - Rp. 600.000</option>
             <option value="600000"> &#62; Rp. 600.000</option>
           </Form.Select>
         </Form.Group>
@@ -128,8 +154,8 @@ const CariMobil = () => {
             <option key="blankChoice" hidden>
               Status Mobil
             </option>
-            <option value="sedia">Sedia</option>
-            <option value="sewa">Disewa</option>
+            <option value="false">Disewakan</option>
+            <option value="true">Tidak Disewakan</option>
           </Form.Select>
         </Form.Group>
 
@@ -147,7 +173,7 @@ const CariMobil = () => {
       <div className="mt-5 hasil-card">
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
         {alertVisible && (
-          <Alert variant="danger" isOpen={alertVisible}>
+          <Alert variant="danger">
             Data tidak ditemukan
           </Alert>
         )}

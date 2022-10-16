@@ -6,14 +6,10 @@ import './index.css'
 const DropFile = ({setImage}) => {
 
     const validate = ({file}) => {
-        // console.log(file);
         setImage(file.name);
     }
     return <div className="drop-area">
         <DropZone
-            // getUploadParams={getUploudParam}
-            // onChangeStatus = {handleChangeStatus}
-            // onSubmit = {handleSubmit}
             maxFiles={1}
             validate={validate}
             accept = "image/*">
