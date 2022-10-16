@@ -13,7 +13,7 @@ const DetailPesananPayment = ({setDoneMetodePembayaran, carOrder, pembayaran, se
         window.sessionStorage.setItem("dataStep", JSON.stringify(data));
     }
 
-    function statusPembayaran() {
+    function statusPembayaran() { // button Bayar saat memilih metode pembayaran
         setDoneMetodePembayaran(true);
         setStepDone({one: true, two: false, three: false});
         const data = {pembayaran: pembayaran, doneMetodePembayaran: true, stepDone: {one: true, two: false, three: false}};

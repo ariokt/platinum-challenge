@@ -24,7 +24,7 @@ const Login = () => {
     try {
       const res = await axios({
         method:"post",
-        url:"https://bootcamp-rent-car.herokuapp.com/customer/auth/login",
+        url:"https://bootcamp-rent-cars.herokuapp.com/customer/auth/login",
         data: sendData
       });
       window.localStorage.setItem("token", res.data.access_token);

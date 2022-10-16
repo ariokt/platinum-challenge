@@ -23,7 +23,7 @@ export default function Invoice({ idPesanan, token }) {
       try {
         const res = await axios({
           method:"get",
-          url:`https://bootcamp-rent-car.herokuapp.com/customer/order/${idPesanan}`,
+          url:`https://bootcamp-rent-cars.herokuapp.com/customer/order/${idPesanan}`,
           headers:{'access_token':token},
         });
         setDataPesanan(res.data);

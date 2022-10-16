@@ -32,7 +32,7 @@ const DetailCar = () => {
     window.addEventListener('popstate', () => { 
       navigate("/cars");
     });
-    const SEARCH_URL = `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`;
+    const SEARCH_URL = `https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`;
     axios
       .get(SEARCH_URL)
       .then((response) => {

@@ -16,7 +16,7 @@ function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, setPesananBerhasi
       try {
         const res = await axios({
             method:"post",
-            url:"https://bootcamp-rent-car.herokuapp.com/customer/order",
+            url:"https://bootcamp-rent-cars.herokuapp.com/customer/order",
             headers:{'access_token':token},
             data:sendData
         });

@@ -11,7 +11,7 @@ import Footer from "../../components/SectionFooter";
 import LoadingSkeleton from "../../components/LoadingSkeleton";
 
 const CariMobil = () => {
-  const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
+  const BASE_URL = "https://bootcamp-rent-cars.herokuapp.com/customer/car";
 
   let navigate = useNavigate();
   const [savedCars, setSavedCars] = useState([]);
