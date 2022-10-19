@@ -17,13 +17,14 @@ const Login = () => {
   async function register() {
     const sendData = {
       email: email,
-      password: password
+      password: password,
+      role: 'Costumer'
     }
 
     try {
       await axios({
         method: "post",
-        url: "https://bootcamp-rent-car.herokuapp.com/customer/auth/register",
+        url: "https://bootcamp-rent-cars.herokuapp.com/customer/auth/register",
         data: sendData
       });
       navigate(`/login`);

@@ -43,6 +43,8 @@ const DetailCar = () => {
       });
   }, []);
 
+  console.log(id)
+
   useEffect(() => {
     if (selectionRange[0].endDate && selectionRange[0].startDate) { //kalau udah select tanggal
       const totalHari = (selectionRange[0].endDate - selectionRange[0].startDate)/86400000+1; //hitung jumlah hari

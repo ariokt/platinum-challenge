@@ -11,32 +11,50 @@ import Footer from "../../components/SectionFooter";
 import LoadingSkeleton from "../../components/LoadingSkeleton";
 
 const CariMobil = () => {
-  const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
+  const BASE_URL = "https://bootcamp-rent-cars.herokuapp.com/customer/v2/car";
 
   let navigate = useNavigate();
-  const [savedCars, setSavedCars] = useState([]);
+  // const [savedCars, setSavedCars] = useState([]);
   const [mobil, setMobil] = useState([]);
   const [loading, setLoading] = useState(true);
   const [namaMobil, setNamaMobil] = useState("");
   const [kategoriMobil, setKategoriMobil] = useState("");
-  const [hargaMobil, setHargaMobil] = useState("");
-  const [alertVisible, setAlertVisible] = useState(false);
+  const [minPrice, setMinPrice]= useState("");
+  const [maxPrice, setMaxPrice]= useState("");
+  const [isRented, setIsRented] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+  // const [hargaMobil, setHargaMobil] = useState([]);
+  // const [alertVisible, setAlertVisible] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    window.addEventListener('popstate', () => { 
-      navigate("/"); //tambah
-    });
-    setCarsList(BASE_URL);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   window.addEventListener('popstate', () => { 
+  //     navigate("/"); //tambah
+  //   });
+  //   setCarsList(BASE_URL);
+  // }, []);
 
-  
-
-  function setCarsList(URL) {
-    axios
-      .get(URL)
-      .then((response) => {
-        const filterNull = response.data.filter(
+  function setCarsList(namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit) {
+    axios({
+        method: "GET",
+        url: BASE_URL,
+        timeout: 120000,
+        params: {
+            name: namaMobil,
+            category: kategoriMobil,
+            minPrice: minPrice,
+            maxPrice: maxPrice,
+            isRented: isRented,
+            page: page,
+            pageSize: limit,
+        },
+        headers: {
+            accept: 'application/json',
+        }
+      })
+      .then((response) => { 
+        const filterNull = response.data.cars.filter(
           (items) =>
             items.name !== null &&
             items.category !== null &&
@@ -44,7 +62,7 @@ const CariMobil = () => {
             items.image !== null
         );
         setMobil(filterNull);
-        setSavedCars(filterNull);
+        // setSavedCars(filterNull);
         setLoading(false);
       })
       .catch((error) => {
@@ -53,63 +71,67 @@ const CariMobil = () => {
       });
   }
 
-  const handleNotData = () => {
-    // setMobil(savedCars);
-    setAlertVisible(true);
-    setTimeout(() => {
-      setAlertVisible(false);
-    }, 2000);
-  };
+  useEffect(() => (
+    setCarsList(namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit)
+  ), [namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit]);
+
+  // const handleNotData = () => {
+  //   // setMobil(savedCars);
+  //   setAlertVisible(true);
+  //   setTimeout(() => {
+  //     setAlertVisible(false);
+  //   }, 2000);
+  // };
 
   function handleViewDetail(id) {
     navigate(`/cars/${id}`);
   }
 
-  const handleCariMobil = (e) => {
-    e.preventDefault();
-    if (savedCars.length > 0) {
-      let filterData;
-      if (hargaMobil.includes("-")) {
-        filterData = savedCars.filter(
-          (item) => {
-            return(item.price > parseInt(hargaMobil.slice(0,6)) && item.price < parseInt(hargaMobil.slice(7,13)));
-          }
-        );
-      } else if (hargaMobil === "400000") {
-        filterData = savedCars.filter(
-          (item) => {
-            return(item.price < parseInt(hargaMobil));
-          }
-        );
-      } else if (hargaMobil === "600000") {
-        filterData = savedCars.filter(
-          (item) => {
-            return(item.price > parseInt(hargaMobil));
-          }
-        );
-      } else if (kategoriMobil) {
-        filterData = savedCars.filter(
-          (item) => {
-            return(item.category === kategoriMobil);
-          }
-        );
-      } else {
-        filterData = savedCars.filter(
-          (item) => {
-            return(item.name.toLowerCase() === namaMobil.toLowerCase());
-          }
-        );
-      }
-      if (filterData.length > 0) {
-        setMobil(filterData);
-      } else {
-        handleNotData();
-      }
-    }
-    setNamaMobil("");
-    setKategoriMobil("");
-    setHargaMobil("");
-  };
+  // const handleCariMobil = (e) => {
+  //   e.preventDefault();
+  //   if (savedCars.length > 0) {
+  //     let filterData;
+  //     if (hargaMobil.includes("-")) {
+  //       filterData = savedCars.filter(
+  //         (item) => {
+  //           return(item.price > parseInt(hargaMobil.slice(0,6)) && item.price < parseInt(hargaMobil.slice(7,13)));
+  //         }
+  //       );
+  //     } else if (hargaMobil === "400000") {
+  //       filterData = savedCars.filter(
+  //         (item) => {
+  //           return(item.price < parseInt(hargaMobil));
+  //         }
+  //       );
+  //     } else if (hargaMobil === "600000") {
+  //       filterData = savedCars.filter(
+  //         (item) => {
+  //           return(item.price > parseInt(hargaMobil));
+  //         }
+  //       );
+  //     } else if (kategoriMobil) {
+  //       filterData = savedCars.filter(
+  //         (item) => {
+  //           return(item.category === kategoriMobil);
+  //         }
+  //       );
+  //     } else {
+  //       filterData = savedCars.filter(
+  //         (item) => {
+  //           return(item.name.toLowerCase() === namaMobil.toLowerCase());
+  //         }
+  //       );
+  //     }
+  //     if (filterData.length > 0) {
+  //       setMobil(filterData);
+  //     } else {
+  //       handleNotData();
+  //     }
+  //   }
+  //   setNamaMobil("");
+  //   setKategoriMobil("");
+  //   setHargaMobil("");
+  // };
 
   return (
     <div>
@@ -127,53 +149,63 @@ const CariMobil = () => {
           />
         </Form.Group>
         <Form.Group controlId="formKategori" className="mt-3 flex-fill">
-          <Form.Label>Kategori</Form.Label>
+          <Form.Label>Kategori Mobil</Form.Label>
           <Form.Select onChange={(e) => setKategoriMobil(e.target.value)}>
             <option key="blankChoice" hidden>
-              Masukan Kapasitas Mobil
+              Kategori
             </option>
-            <option value="2 - 4 orang">2 - 4 Orang</option>
-            <option value="4 - 6 orang">4 - 6 Orang</option>
-            <option value="6 - 8 orang">6 - 8 Orang</option>
+            <option value='small'>small</option>
+            <option value='medium'>medium</option>
+            <option value='large'>large</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formHarga" className="mt-3 flex-fill">
-          <Form.Label>Harga</Form.Label>
-          <Form.Select onChange={(e) => setHargaMobil(e.target.value)}>
-            <option key="blankChoice" hidden>
-              Masukan Harga Sewa per Hari
-            </option>
-            <option value="400000"> &#60; Rp.400.000 </option>
-            <option value="400000-600000">Rp.400.000 - Rp. 600.000</option>
-            <option value="600000"> &#62; Rp. 600.000</option>
-          </Form.Select>
+        <Form.Group controlId="formMinPrice" className="mt-3 flex-fill">
+          <Form.Label>Harga Minimal</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Ketik harga minimal"
+            autoComplete="off"
+            onChange={(e) => setMinPrice(e.target.value)}
+            value={minPrice}
+          />
         </Form.Group>
+        <Form.Group controlId="formMinPrice" className="mt-3 flex-fill">
+          <Form.Label>Harga Maksimal</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Ketik harga maksimal"
+            autoComplete="off"
+            onChange={(e) => setMaxPrice(e.target.value)}
+            value={maxPrice}
+          />
+        </Form.Group>
+        
         <Form.Group controlId="formSewa" className="mt-3 flex-fill">
           <Form.Label>Status</Form.Label>
-          <Form.Select disabled>
+          <Form.Select onChange={(e) => setIsRented(e.target.value)}>
             <option key="blankChoice" hidden>
               Status Mobil
             </option>
-            <option value="false">Disewakan</option>
-            <option value="true">Tidak Disewakan</option>
+            <option value="false">Tidak Disewakan</option>
+            <option value="true">Disewakan</option>
           </Form.Select>
         </Form.Group>
 
-        <Button
+        {/* <Button
           variant="success"
           type="submit"
           className="mt-3"
-          onClick={handleCariMobil}
+          // onClick={handleCariMobil}
           disabled={!namaMobil && !kategoriMobil && !hargaMobil}
         >
           Cari Mobil
-        </Button>
+        </Button> */}
       </Form>
 
       <div className="mt-5 hasil-card">
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
-        {alertVisible && (
-          <Alert variant="danger">
+        {!mobil.length && (
+          <Alert variant="danger" className="carlist__alert">
             Data tidak ditemukan
           </Alert>
         )}

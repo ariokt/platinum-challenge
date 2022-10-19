@@ -23,6 +23,6 @@
         "camelCase": "off",
         "no-unused-vars": "warn",
         "callback-return": ["Warn", ["callback", "next"]],
-        "no-console": "error"
+        "no-console": "off"
     }
 }
