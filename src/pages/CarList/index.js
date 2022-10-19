@@ -14,7 +14,6 @@ const CariMobil = () => {
   const BASE_URL = "https://bootcamp-rent-cars.herokuapp.com/customer/v2/car";
 
   let navigate = useNavigate();
-  // const [savedCars, setSavedCars] = useState([]);
   const [mobil, setMobil] = useState([]);
   const [loading, setLoading] = useState(true);
   const [namaMobil, setNamaMobil] = useState("");
@@ -24,16 +23,6 @@ const CariMobil = () => {
   const [isRented, setIsRented] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
-  // const [hargaMobil, setHargaMobil] = useState([]);
-  // const [alertVisible, setAlertVisible] = useState(false);
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   window.addEventListener('popstate', () => { 
-  //     navigate("/"); //tambah
-  //   });
-  //   setCarsList(BASE_URL);
-  // }, []);
 
   function setCarsList(namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit) {
     axios({
@@ -62,7 +51,6 @@ const CariMobil = () => {
             items.image !== null
         );
         setMobil(filterNull);
-        // setSavedCars(filterNull);
         setLoading(false);
       })
       .catch((error) => {
@@ -71,67 +59,13 @@ const CariMobil = () => {
       });
   }
 
-  useEffect(() => (
+  useEffect(() => {
     setCarsList(namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit)
-  ), [namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit]);
-
-  // const handleNotData = () => {
-  //   // setMobil(savedCars);
-  //   setAlertVisible(true);
-  //   setTimeout(() => {
-  //     setAlertVisible(false);
-  //   }, 2000);
-  // };
+  }, [namaMobil, kategoriMobil, minPrice, maxPrice, isRented, page, limit]);
 
   function handleViewDetail(id) {
     navigate(`/cars/${id}`);
   }
-
-  // const handleCariMobil = (e) => {
-  //   e.preventDefault();
-  //   if (savedCars.length > 0) {
-  //     let filterData;
-  //     if (hargaMobil.includes("-")) {
-  //       filterData = savedCars.filter(
-  //         (item) => {
-  //           return(item.price > parseInt(hargaMobil.slice(0,6)) && item.price < parseInt(hargaMobil.slice(7,13)));
-  //         }
-  //       );
-  //     } else if (hargaMobil === "400000") {
-  //       filterData = savedCars.filter(
-  //         (item) => {
-  //           return(item.price < parseInt(hargaMobil));
-  //         }
-  //       );
-  //     } else if (hargaMobil === "600000") {
-  //       filterData = savedCars.filter(
-  //         (item) => {
-  //           return(item.price > parseInt(hargaMobil));
-  //         }
-  //       );
-  //     } else if (kategoriMobil) {
-  //       filterData = savedCars.filter(
-  //         (item) => {
-  //           return(item.category === kategoriMobil);
-  //         }
-  //       );
-  //     } else {
-  //       filterData = savedCars.filter(
-  //         (item) => {
-  //           return(item.name.toLowerCase() === namaMobil.toLowerCase());
-  //         }
-  //       );
-  //     }
-  //     if (filterData.length > 0) {
-  //       setMobil(filterData);
-  //     } else {
-  //       handleNotData();
-  //     }
-  //   }
-  //   setNamaMobil("");
-  //   setKategoriMobil("");
-  //   setHargaMobil("");
-  // };
 
   return (
     <div>
@@ -190,16 +124,6 @@ const CariMobil = () => {
             <option value="true">Disewakan</option>
           </Form.Select>
         </Form.Group>
-
-        {/* <Button
-          variant="success"
-          type="submit"
-          className="mt-3"
-          // onClick={handleCariMobil}
-          disabled={!namaMobil && !kategoriMobil && !hargaMobil}
-        >
-          Cari Mobil
-        </Button> */}
       </Form>
 
       <div className="mt-5 hasil-card">
