@@ -5,7 +5,7 @@ import './index.css'
 import DropFile from '../DropFile';
 import Timer from '../Timer'
 
-function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, setPesananBerhasil, setStepDone }) {
+function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, idPesanan, setPesananBerhasil, setStepDone }) {
     const [readyConfirm , setReadyConfirm] = useState(false)
     const [image, setImage] = useState(null);
     
@@ -32,11 +32,33 @@ function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, setPesananBerhasi
         sendOrder();
     }
 
-    const pemesananBerhasil = () => {
+    async function uploadBukti() {
+      try {
+        await axios({
+          method: "PUT",
+          url:`https://bootcamp-rent-cars.herokuapp.com/customer/order/${idPesanan}/slip`,
+          timeout: 120000,
+          headers: {
+            'accept': 'application/json',
+            'Content-Type': 'multipart/form-data',
+            'access_token': localStorage.getItem('token')
+          },
+          data: {
+            'slip': image
+          }
+        });
         setPesananBerhasil(true);
         window.sessionStorage.setItem("pesananBerhasil", true);
         setStepDone({one: true, two: true, three: false});
         window.location.reload();
+
+      } catch (error) {
+        window.alert(error);
+      }
+    }
+
+    const pemesananBerhasil = () => {
+      uploadBukti();
     }
 
 
@@ -62,7 +84,8 @@ function KonfirmasiPembayaran({ carOrder, token, setIdPesanan, setPesananBerhasi
                 Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu    
                 </p>
             </div>
-            <DropFile setImage={setImage}></DropFile>
+            {/* <DropFile setImage={setImage}></DropFile> */}
+            <DropFile setImage={setImage}/>
             {image ? <div className='d-grid' ><Button variant='success' onClick={() => pemesananBerhasil()}>Upload</Button></div> : 
             <div className='d-grid' ><Button variant='success' disabled>Upload</Button></div>}
         </div>

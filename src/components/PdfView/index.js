@@ -25,8 +25,7 @@ export const PdfView = ({ dataPesanan }) => {
           <Page size="A6" style={styles.page}>
               <View style={styles.section} className="d-flex flex-column">
                   <Text style={styles.text}>Nama mobil: {dataPesanan.Car.name}</Text>
-                  <Text style={styles.text}>Total Harga: 
-                    <IntlProvider locale="id">Rp <FormattedNumber value={dataPesanan.total_price} currency="IDR"/>{" "} </IntlProvider>
+                  <Text style={styles.text}>Total Harga:<IntlProvider locale="id"> Rp <FormattedNumber value={dataPesanan.total_price} currency="IDR"/>{" "} </IntlProvider>
                   </Text>
                   <Text style={styles.text}>Tanggal mulai sewa: {dataPesanan.start_rent_at.slice(0,10)}</Text>
                   <Text style={styles.text}>Tanggal selesai sewa: {dataPesanan.finish_rent_at.slice(0,10)}</Text>

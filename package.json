@@ -21,6 +21,7 @@
     "react-bootstrap": "^2.4.0",
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-dropzone-uploader": "^2.11.0",
     "react-intl": "^6.0.5",
     "react-lines-ellipsis": "^0.15.1",

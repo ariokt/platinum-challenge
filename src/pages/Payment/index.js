@@ -73,7 +73,7 @@ const Payment = () => {
                         <IntruksiPembayaran className='int-pos' pembayaran={pembayaran} />
                     </div>
                     <div className="col-md-5">
-                        <KonfirmasiPembayaran carOrder={carOrder} token={token} setIdPesanan={setIdPesanan} setPesananBerhasil={setPesananBerhasil} setStepDone={setStepDone} />
+                        <KonfirmasiPembayaran carOrder={carOrder} token={token} setIdPesanan={setIdPesanan} idPesanan={idPesanan} setPesananBerhasil={setPesananBerhasil} setStepDone={setStepDone} />
                     </div>
                 </div>
             </div>
