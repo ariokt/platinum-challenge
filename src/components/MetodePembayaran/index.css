@@ -1,0 +1,61 @@
+.pembayaran-transfer-section {
+    background: #FFFFFF;
+    /* Shadow/Low */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+
+    padding: 24px;
+}
+
+.logo-transfer {
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-radius: 4px;
+    width: 61px;
+    height: 30px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+
+    text-align: center;
+    padding: 6px 0px;
+}
+
+
+
+.space-icon {
+    display: flex; 
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    width: 100%;
+    justify-content: space-between;
+}
+.space-icon div p{
+    margin-bottom: 0px;
+}
+.space-icon-image{
+    align-items: end;
+    
+}
+
+
+.no-space-icon{
+    margin-top: 3px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.transfer-method {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0px;
+    justify-content: flex-start
+}
+
+
+

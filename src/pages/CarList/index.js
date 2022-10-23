@@ -11,7 +11,7 @@ import Footer from "../../components/SectionFooter";
 import LoadingSkeleton from "../../components/LoadingSkeleton";
 
 const CariMobil = () => {
-  const BASE_URL = "https://bootcamp-rent-car.herokuapp.com/admin/car/";
+  const BASE_URL = "https://bootcamp-rent-cars.herokuapp.com/customer/car";
 
   let navigate = useNavigate();
   const [savedCars, setSavedCars] = useState([]);
@@ -23,8 +23,14 @@ const CariMobil = () => {
   const [alertVisible, setAlertVisible] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('popstate', () => { 
+      navigate("/"); //tambah
+    });
     setCarsList(BASE_URL);
   }, []);
+
+  
 
   function setCarsList(URL) {
     axios
@@ -62,12 +68,38 @@ const CariMobil = () => {
   const handleCariMobil = (e) => {
     e.preventDefault();
     if (savedCars.length > 0) {
-      const filterData = savedCars.filter(
-        (items) =>
-          items.name.toLowerCase() === namaMobil.toLowerCase() ||
-          items.category === kategoriMobil
-      );
-
+      let filterData;
+      if (hargaMobil.includes("-")) {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price > parseInt(hargaMobil.slice(0,6)) && item.price < parseInt(hargaMobil.slice(7,13)));
+          }
+        );
+      } else if (hargaMobil === "400000") {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price < parseInt(hargaMobil));
+          }
+        );
+      } else if (hargaMobil === "600000") {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.price > parseInt(hargaMobil));
+          }
+        );
+      } else if (kategoriMobil) {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.category === kategoriMobil);
+          }
+        );
+      } else {
+        filterData = savedCars.filter(
+          (item) => {
+            return(item.name.toLowerCase() === namaMobil.toLowerCase());
+          }
+        );
+      }
       if (filterData.length > 0) {
         setMobil(filterData);
       } else {
@@ -112,7 +144,7 @@ const CariMobil = () => {
               Masukan Harga Sewa per Hari
             </option>
             <option value="400000"> &#60; Rp.400.000 </option>
-            <option value="500000">Rp.400.000 - Rp. 600.000</option>
+            <option value="400000-600000">Rp.400.000 - Rp. 600.000</option>
             <option value="600000"> &#62; Rp. 600.000</option>
           </Form.Select>
         </Form.Group>
@@ -122,8 +154,8 @@ const CariMobil = () => {
             <option key="blankChoice" hidden>
               Status Mobil
             </option>
-            <option value="sedia">Sedia</option>
-            <option value="sewa">Disewa</option>
+            <option value="false">Disewakan</option>
+            <option value="true">Tidak Disewakan</option>
           </Form.Select>
         </Form.Group>
 
@@ -139,10 +171,9 @@ const CariMobil = () => {
       </Form>
 
       <div className="mt-5 hasil-card">
-        
         {/* Alert saat tidak ada data yang ditemukan saat search mobil */}
         {alertVisible && (
-          <Alert variant="danger" isOpen={alertVisible}>
+          <Alert variant="danger">
             Data tidak ditemukan
           </Alert>
         )}
@@ -155,18 +186,16 @@ const CariMobil = () => {
             {mobil.map((result) => {
               return (
                 <Card
-                  key={result.id}
-                  className="car-container__card"
-                >
-                  <Card.Img variant="top" src={result.image} />
-                  <Card.Body className="d-flex flex-column">
+                  key={result.id}>
+                  <Card.Img className="car-container__card-img" variant="top" src={result.image} />
+                  <Card.Body className="car-container__card-body d-flex flex-column">
                     <Card.Title>{result.name}</Card.Title>
                     <IntlProvider locale="id">
                       Rp <FormattedNumber value={result.price} currency="IDR"/>{" "} / hari
                     </IntlProvider>
                     <Card.Text>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the cards content.
                     </Card.Text>
                     <div className="d-grid mt-auto">
                       <Button

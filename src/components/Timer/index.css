@@ -1,0 +1,19 @@
+.timer-section{
+    display: flex;
+    gap: 6px;
+}
+.timer {
+    width: 22px;
+    height: 26px;
+    background: #FA2C5A;
+    border-radius: 2px;
+    justify-content: center;
+    /* padding-left: 1px; */
+}
+.timer p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #FFFFFF;
+    text-align: center;
+}

@@ -22,6 +22,10 @@
   height: fit-content;
 }
 
+.nav-link--disabled {
+  background-color: #a76d6d;
+}
+
 .nav-link__register:hover {
   background-color: #093609;
 }

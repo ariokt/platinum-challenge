@@ -1,11 +1,29 @@
 import React from "react";
 import "./index.css";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const NavigationBar = () => {
   
   const location = useLocation();
   const token = window.localStorage.getItem("token");
+  const timer = window.sessionStorage.getItem("TimerPembayaran");
+  const navigate = useNavigate();
+
+  const handleLogo = () => {
+    if (timer) {
+        window.sessionStorage.removeItem("idPesanan");
+        window.sessionStorage.removeItem("pesananBerhasil");
+        window.sessionStorage.removeItem("dataStep");
+        window.sessionStorage.removeItem("TimerPembayaran");
+        window.sessionStorage.removeItem("LastOrder");
+        navigate("/");
+        window.location.reload();
+    } else {
+        window.sessionStorage.removeItem("dataStep");
+        window.sessionStorage.removeItem("LastOrder");
+        navigate("/");
+    }
+  }
 
   return (
     <div className="navigator">
@@ -14,7 +32,7 @@ const NavigationBar = () => {
         expand="md"
       >
         <Container fluid>
-          <Link to="/" className="brand-logo"></Link>
+          <div className="brand-logo" onClick={handleLogo}></div>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"
@@ -31,19 +49,18 @@ const NavigationBar = () => {
                 <Nav.Link href="#products">Why Us</Nav.Link>
                 <Nav.Link href="#testi">Testimonial</Nav.Link>
                 <Nav.Link href="#faq">FAQ</Nav.Link>
-                {!token ? (
-                  <Link to="/login" className="nav-link nav-link__register" state={location.pathname}>
-                    Register
-                  </Link>
-                ) : (
-                  <Link
-                    to="/"
-                    className="nav-link nav-link__logout"
-                    onClick={() => window.localStorage.removeItem("token")}
-                  >
-                    Logout
-                  </Link>
+                {!token && (<Link to="/login" className="nav-link nav-link__register" state={location.pathname}>Register</Link> )}
+
+                {(location.pathname !== '/payment' && token) && (
+                  <Link to="." className="nav-link nav-link__logout" onClick={() => window.localStorage.removeItem("token")}> Logout</Link>
                 )}
+
+                {(location.pathname === '/payment' && token) && (
+                  <Link to="." className="nav-link nav-link__logout nav-link--disabled"> Logout</Link>
+                )}
+                
+                  
+                
                 
               </Nav>
             </Offcanvas.Body>

@@ -34,7 +34,7 @@ const Faq = () => {
     <div>
       <section id="faq" className="faq-section">
         <div className="faq-title">
-          <h1>Frequently Asked Question</h1>
+          <h2>Frequently Asked Question</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
 
