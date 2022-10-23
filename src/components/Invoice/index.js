@@ -34,34 +34,33 @@ export default function Invoice({ idPesanan, token }) {
     getOrder();
   }, []);
 
-  if (dataPesanan) {
-    return (
-      <div className='ticket__container'>
-        <div className='ticket__orderid'>
-          <p>Order ID: {idPesanan}</p>
-        </div>
-        <div className='ticket--success'>
-          <img src={TicketSuccess} alt='' />
-          <h2>Pembayaran Berhasil!</h2>
-          <p>Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
-        </div>
-        <Card className='ticket--invoice'>
-          <div className='ticket--invoice-h align-items-center mb-3'>
-            <div className='ticket--invoive-hl'>
-              <h3>Invoice</h3>
-            </div>
-            <PdfUnduh dataPesanan={dataPesanan}/>
-          </div>
-            <div style={{width:"100%", height:"100%"}}>
-              {dataPesanan && (
-                <PDFViewer style={styles.viewer}>
-                  <PdfView dataPesanan={dataPesanan}/>
-                </PDFViewer>
-              )}
-            </div>
-        </Card>
+  
+  return (
+    <div className='ticket__container'>
+      <div className='ticket__orderid'>
+        <p>Order ID: {idPesanan}</p>
       </div>
-    );
-  } 
+      <div className='ticket--success'>
+        <img src={TicketSuccess} alt='' />
+        <h2>Pembayaran Berhasil!</h2>
+        <p>Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
+      </div>
+      <Card className='ticket--invoice'>
+        <div className='ticket--invoice-h align-items-center mb-3'>
+          <div className='ticket--invoive-hl'>
+            <h3>Invoice</h3>
+          </div>
+          {dataPesanan && <PdfUnduh dataPesanan={dataPesanan}/>}
+        </div>
+          <div style={{width:"100%", height:"100%"}}>
+            {dataPesanan && (
+              <PDFViewer style={styles.viewer}>
+                <PdfView dataPesanan={dataPesanan}/>
+              </PDFViewer>
+            )}
+          </div>
+      </Card>
+    </div>
+  )
 }
 
