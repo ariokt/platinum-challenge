@@ -26,6 +26,7 @@ const DetailCar = () => {
   const [jumlahHari, setJumlahHari] = useState(0);
   const [hargaSewa, setHargaSewa] = useState(0);
   // const token = window.localStorage.getItem("token");
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -43,20 +44,28 @@ const DetailCar = () => {
       });
   }, []);
 
+  const handleTanggal = () => {
+    setSelectionRange([
+      {
+        startDate: null,
+        endDate: null,
+        key: 'selection',
+      }
+    ]);
+    setHargaSewa(0);
+    setJumlahHari(0);
+
+  }
   useEffect(() => {
+
     if (selectionRange[0].endDate && selectionRange[0].startDate) { //kalau udah select tanggal
       const totalHari = (selectionRange[0].endDate - selectionRange[0].startDate)/86400000+1; //hitung jumlah hari
-      if (totalHari > 7) { // jika lebih dari 7 hari user akan pilih ulang
+      if(selectionRange[0].startDate < new Date()){
+        window.alert("Tanggal yang Anda pilih tidak sesuai!");
+        handleTanggal();
+      } else if (totalHari > 7) { // jika lebih dari 7 hari user akan pilih ulang
+        handleTanggal();
         window.alert("Tidak boleh sewa lebih dari 7 hari!");
-        setSelectionRange([
-          {
-            startDate: null,
-            endDate: null,
-            key: 'selection',
-          }
-        ]);
-        setHargaSewa(0);
-        setJumlahHari(0);
       } else {
         setJumlahHari(totalHari); // hitung berapa hari berdasarkan tanggal yang dipilih
         setHargaSewa(car.price*jumlahHari); // menentukan harga
