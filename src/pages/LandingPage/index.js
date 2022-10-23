@@ -10,6 +10,8 @@ import Footer from "../../components/SectionFooter";
 
 const LandingPage = () => {
   const timer = window.sessionStorage.getItem("TimerPembayaran");
+  window.sessionStorage.removeItem("idPesanan");
+  window.sessionStorage.removeItem("LastOrder");
   if (timer) {
     window.sessionStorage.removeItem("TimerPembayaran");
     window.sessionStorage.removeItem("dataStep");
