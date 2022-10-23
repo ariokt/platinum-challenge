@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.942bc5d1.css",
+    "main.js": "/static/js/main.a16a9973.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/img_car.png": "/static/media/img_car.06eb925c5443ac128417.png",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/sign-in.png": "/static/media/sign-in.e24de4d3ff7e27568e2f.png",
+    "static/media/img_service.png": "/static/media/img_service.7f4c546122fbcabf7b2b.png",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/img_photo-1.png": "/static/media/img_photo-1.a508977448da0f12cd83.png",
+    "static/media/three-preview.svg": "/static/media/three-preview.48cb1eaa1e49bcaa2de8b4b46d2eb78d.svg",
+    "static/media/three-to-do.svg": "/static/media/three-to-do.0006ac95bd94aff2fadffa48247b9232.svg",
+    "static/media/fi_users.svg": "/static/media/fi_users.42914b6d2a79e3bd292cde82d73936fa.svg",
+    "static/media/two-preview.svg": "/static/media/two-preview.41c480dce3254ac105b0fa4519e189f5.svg",
+    "static/media/two-to-do.svg": "/static/media/two-to-do.252432a57d993553d69982cf2c7f89d1.svg",
+    "index.html": "/index.html",
+    "static/media/copy-icon.svg": "/static/media/copy-icon.40623ae7aff622633f87364756ec8b49.svg",
+    "static/media/fi_download.svg": "/static/media/fi_download.43cd119a7281dabee48e7c3897dd4d64.svg",
+    "static/media/one-preview.svg": "/static/media/one-preview.3c9c34336696d5b6adb3121a081d1788.svg",
+    "static/media/left_back.svg": "/static/media/left_back.adb925114e0e5891efdd5cccf2e5b836.svg",
+    "static/media/icon_checklist.svg": "/static/media/icon_checklist.a7390c57f8c9deb0e022b03ec84bb2d8.svg",
+    "static/media/success.svg": "/static/media/success.7c2c6a12c82f0da9b3379558e495a402.svg",
+    "static/media/track-done.svg": "/static/media/track-done.6fec155d0925ef9423d568db0c62ec33.svg",
+    "static/media/check-payment.svg": "/static/media/check-payment.dd6e0f3356605d95e08bef368cbdf91d.svg",
+    "static/media/line-track.svg": "/static/media/line-track.df66608bf8c487728ceac9f26848dd24.svg",
+    "main.942bc5d1.css.map": "/static/css/main.942bc5d1.css.map",
+    "main.a16a9973.js.map": "/static/js/main.a16a9973.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.942bc5d1.css",
+    "static/js/main.a16a9973.js"
+  ]
+}
